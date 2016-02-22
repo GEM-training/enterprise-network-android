@@ -2,6 +2,7 @@ package gem.training3.enterprisenetwork.screen.login;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -67,7 +68,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         ResponseUserInfoDTO responseUserInfo = gson.fromJson(gson.toJson(responseDTO.getReturnObject()), ResponseUserInfoDTO.class);
 
         Session.setUser(responseUserInfo);
-        String json = gson.toJson(responseDTO);
+
+        String json = gson.toJson(responseUserInfo);
+        Log.e("cxz", json);
 
         //save to SP
         SharedPreferences sp = getSharedPreferences(Constants.USER_INFO, MODE_PRIVATE);

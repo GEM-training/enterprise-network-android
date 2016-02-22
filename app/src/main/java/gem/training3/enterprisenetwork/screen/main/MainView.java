@@ -8,7 +8,5 @@ import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
 public interface MainView {
     void onGetCurrentUserSuccess(ResponseUserInfoDTO u);
     void onLogoutSuccess();
-    void onLogoutError(String message);
-    void onLogoutFailure(String message);
     void onNetworkError();
 }

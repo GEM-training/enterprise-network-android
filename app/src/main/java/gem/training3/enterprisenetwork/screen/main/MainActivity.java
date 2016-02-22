@@ -108,16 +108,6 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
     }
 
     @Override
-    public void onLogoutError(String message) {
-        DialogUtils.showErrorAlert(this, "Not success:" + message);
-    }
-
-    @Override
-    public void onLogoutFailure(String message) {
-        DialogUtils.showErrorAlert(this, "Failure:" + message);
-    }
-
-    @Override
     public void onNetworkError() {
         DialogUtils.showErrorAlert(this,"Network error!");
     }

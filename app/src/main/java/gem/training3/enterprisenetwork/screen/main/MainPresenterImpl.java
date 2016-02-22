@@ -2,6 +2,7 @@ package gem.training3.enterprisenetwork.screen.main;
 
 import android.content.Context;
 
+import gem.training3.enterprisenetwork.base.log.Logger;
 import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.network.ServiceBuilder;
 import gem.training3.enterprisenetwork.network.Session;
@@ -37,14 +38,20 @@ public class MainPresenterImpl implements MainPresenter {
                     c.getSharedPreferences(Constants.USER_INFO, c.MODE_PRIVATE).edit().clear().commit();
 
                     view.onLogoutSuccess();
-                } else {
-                    view.onLogoutError(((ResponseDTO)response.body()).getMessage());
                 }
+                else {
+                    Logger.d("network not connect when logout");
+                    view.onLogoutSuccess();
+//                    view.onLogoutError(((ResponseDTO) response.body()).getMessage());
+                }
+
             }
 
             @Override
             public void onFailure(Call<ResponseDTO> call, Throwable t) {
-                view.onLogoutError(t.getMessage());
+//                view.onLogoutError(t.getMessage());
+                view.onLogoutSuccess();
+                Logger.d("network not connect when logout");
             }
         });
     }
