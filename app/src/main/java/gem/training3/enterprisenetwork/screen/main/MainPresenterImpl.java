@@ -40,18 +40,16 @@ public class MainPresenterImpl implements MainPresenter {
                     view.onLogoutSuccess();
                 }
                 else {
-                    Logger.d("network not connect when logout");
+                    Logger.d("Network not connect when logout");
                     view.onLogoutSuccess();
-//                    view.onLogoutError(((ResponseDTO) response.body()).getMessage());
                 }
 
             }
 
             @Override
             public void onFailure(Call<ResponseDTO> call, Throwable t) {
-//                view.onLogoutError(t.getMessage());
                 view.onLogoutSuccess();
-                Logger.d("network not connect when logout");
+                Logger.d("Network not connect when logout");
             }
         });
     }

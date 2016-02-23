@@ -59,7 +59,7 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
             }
 
             VarUtils.DOUBLEBACK = true;
-            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.click_back_again), Toast.LENGTH_SHORT).show();
 
             new Handler().postDelayed(new Runnable() {
 
@@ -109,7 +109,7 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
 
     @Override
     public void onNetworkError() {
-        DialogUtils.showErrorAlert(this,"Network error!");
+        DialogUtils.showErrorAlert(this,getString(R.string.dialog_title_content_network_problem));
     }
 
 
