@@ -7,13 +7,12 @@ import butterknife.OnClick;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.base.BaseActivity;
 import gem.training3.enterprisenetwork.base.BasePresenter;
-import gem.training3.enterprisenetwork.base.BaseView;
 import gem.training3.enterprisenetwork.screen.login.LoginActivity;
 
 /**
  * Created by huylv on 24/02/2016.
  */
-public class WelcomeActivity extends BaseActivity implements BaseView{
+public class WelcomeActivity extends BaseActivity {
 
 
     @Override
@@ -27,11 +26,6 @@ public class WelcomeActivity extends BaseActivity implements BaseView{
 
     }
 
-    @Override
-    public BasePresenter onCreatePresenter() {
-        return new BasePresenterImpl();
-    }
-
     @OnClick(R.id.welcome_signup_customer)
     void signupCustomer(){
 
@@ -41,5 +35,10 @@ public class WelcomeActivity extends BaseActivity implements BaseView{
     void startSigninActivity(){
         Intent i = new Intent(WelcomeActivity.this, LoginActivity.class);
         startActivity(i);
+    }
+
+    @Override
+    public BasePresenter onCreatePresenter() {
+        return null;
     }
 }

@@ -14,9 +14,9 @@ import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.base.BaseActivityDrawer;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
 import gem.training3.enterprisenetwork.common.util.VarUtils;
-import gem.training3.enterprisenetwork.fragment.HomeFragment;
 import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
 import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
+import gem.training3.enterprisenetwork.screen.fragment.HomeFragment;
 
 /**
  * Created by huylv on 22/02/2016.
@@ -24,6 +24,7 @@ import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
 public class MainActivity extends BaseActivityDrawer<MainPresenter> implements MainView {
 
     public HomeFragment homeFragment;
+
 
     @Bind(R.id.tvUserName)
     TextView tvUserName;
@@ -37,6 +38,7 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
         getPresenter().getCurrentUser();
 
         homeFragment = new HomeFragment();
+        getFragmentManager().beginTransaction().add(R.id.main_fl,homeFragment).addToBackStack(null).commit();
     }
 
     @Override
