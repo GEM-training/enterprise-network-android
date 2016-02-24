@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/stores_search_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/search"
+        android:maxLines="1"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/products_total_number_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stores_search_et"
+        android:text="@string/sample_number" />
+
+    <TextView
+        android:id="@+id/products_total_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stores_search_et"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/products_total_number_tv"
+        android:text="@string/stores" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/stores_list_stores_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/products_total_number_tv"></android.support.v7.widget.RecyclerView>
+</RelativeLayout>

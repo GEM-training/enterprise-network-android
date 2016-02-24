@@ -16,7 +16,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_centerInParent="true"
-            android:background="@drawable/default_profile" />
+            android:background="@mipmap/default_profile" />
 
         <TextView
             android:id="@+id/customer_name_tv"
@@ -68,13 +68,13 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentRight="true"
-            android:background="@drawable/select" />
+            android:background="@mipmap/select" />
 
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentLeft="true"
-            android:background="@drawable/refresh" />
+            android:background="@mipmap/refresh" />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

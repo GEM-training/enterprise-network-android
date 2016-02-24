@@ -18,9 +18,8 @@
             android:gravity="center"
             android:text="@string/welcome_greeting"
             android:textColor="@color/white"
-            android:textStyle="bold"
             android:textSize="20dp"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/welcome_email_tv"
@@ -33,25 +32,13 @@
             android:textColor="@color/white" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/welcome_button_rl"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/grey_200">
-
-        <Button
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/select" />
 
     <RelativeLayout
         android:id="@+id/welcome_guide_rl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/welcome_greeting_rl"
-        android:layout_above="@+id/include">
+        android:layout_above="@+id/include"
+        android:layout_below="@id/welcome_greeting_rl">
 
         <ImageView
             android:id="@+id/welcome_guide_screen_iv"
@@ -80,6 +67,7 @@
 
     </RelativeLayout>
 
-    <include layout="@layout/navi_down"
-        android:id="@+id/include" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/navi_down" />
 </RelativeLayout>
