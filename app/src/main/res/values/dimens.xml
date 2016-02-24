@@ -8,4 +8,7 @@
     <dimen name="nav_header_height">160dp</dimen>
 
     <dimen name="welcome_signup_bt">300dp</dimen>
+
+    <dimen name="navi_down_height">48dp</dimen>
+    <dimen name="navi_down_icon">40dp</dimen>
 </resources>
