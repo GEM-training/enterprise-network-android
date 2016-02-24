@@ -16,7 +16,7 @@ import gem.training3.enterprisenetwork.common.util.DialogUtils;
 import gem.training3.enterprisenetwork.common.util.VarUtils;
 import gem.training3.enterprisenetwork.fragment.HomeFragment;
 import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
-import gem.training3.enterprisenetwork.screen.login.LoginActivity;
+import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
 
 /**
  * Created by huylv on 22/02/2016.
@@ -104,7 +104,7 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
 
     @Override
     public void onLogoutSuccess() {
-        Intent i = new Intent(MainActivity.this, LoginActivity.class);
+        Intent i = new Intent(MainActivity.this, WelcomeActivity.class);
         startActivity(i);
         finish();
     }

@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 
 import gem.training3.enterprisenetwork.common.Constants;
-import gem.training3.enterprisenetwork.common.util.NetworkUtils;
 import gem.training3.enterprisenetwork.common.util.VarUtils;
 import gem.training3.enterprisenetwork.network.ServiceBuilder;
 import gem.training3.enterprisenetwork.network.Session;
@@ -28,11 +27,6 @@ public class LoginPresenterImpl implements LoginPresenter {
 
     @Override
     public void doLogin(Activity context, String email, String password, String deviceId) {
-
-        if (!NetworkUtils.networkConnected(context)) {
-            mView.onNetworkError();
-            return;
-        }
 //        if (!StringUtils.validateEmail(email)) {
 //            mView.onEmailError();
 //            return;
@@ -76,7 +70,7 @@ public class LoginPresenterImpl implements LoginPresenter {
             SharedPreferences sp = context.getSharedPreferences(Constants.USER_INFO, Activity.MODE_PRIVATE);
             sp.edit().putString(Constants.SPKEY_USERJSON, json).commit();
 
-            mView.onLoginSuccess(response);
+            mView.onLoginSuccess();
         }
 
     };

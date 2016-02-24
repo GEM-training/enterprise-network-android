@@ -13,9 +13,7 @@ import gem.training3.enterprisenetwork.base.BaseActivity;
 import gem.training3.enterprisenetwork.common.util.DeviceUtils;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
 import gem.training3.enterprisenetwork.common.util.NetworkUtils;
-import gem.training3.enterprisenetwork.network.dto.ResponseDTO;
 import gem.training3.enterprisenetwork.screen.main.MainActivity;
-import retrofit2.Response;
 
 /**
  * Created by huylv on 22/02/2016.
@@ -40,24 +38,15 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @Override
-    public void onEmailError() {
-
-    }
-
-    @Override
     public void onPasswordError() {
         DialogUtils.showErrorAlert(this, "Password too short!");
     }
 
     @Override
-    public void onLoginSuccess(Response<ResponseDTO> response) {
+    public void onLoginSuccess() {
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(i);
         finish();
-    }
-
-    @Override
-    public void onNetworkError() {
     }
 
     @Override

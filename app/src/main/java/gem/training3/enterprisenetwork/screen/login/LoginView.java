@@ -9,5 +9,5 @@ import gem.training3.enterprisenetwork.base.BaseView;
  */
 public interface LoginView extends BaseView<LoginPresenter> {
     void onPasswordError();
-    void onLoginSuccess(String json);
+    void onLoginSuccess();
 }
