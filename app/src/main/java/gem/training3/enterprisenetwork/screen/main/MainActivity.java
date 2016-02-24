@@ -6,17 +6,16 @@ import android.os.Handler;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import butterknife.Bind;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.base.BaseActivityDrawer;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
 import gem.training3.enterprisenetwork.common.util.VarUtils;
 import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
-import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
 import gem.training3.enterprisenetwork.screen.fragment.HomeFragment;
+import gem.training3.enterprisenetwork.screen.fragment.WelcomeFragment;
+import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
 
 /**
  * Created by huylv on 22/02/2016.
@@ -24,10 +23,7 @@ import gem.training3.enterprisenetwork.screen.fragment.HomeFragment;
 public class MainActivity extends BaseActivityDrawer<MainPresenter> implements MainView {
 
     public HomeFragment homeFragment;
-
-
-    @Bind(R.id.tvUserName)
-    TextView tvUserName;
+    public WelcomeFragment welcomeFragment;
 
     ResponseUserInfoDTO currentUser;
 
@@ -38,7 +34,8 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
         getPresenter().getCurrentUser();
 
         homeFragment = new HomeFragment();
-        getFragmentManager().beginTransaction().add(R.id.main_fl,homeFragment).addToBackStack(null).commit();
+        welcomeFragment = new WelcomeFragment();
+        getFragmentManager().beginTransaction().add(R.id.main_fl,welcomeFragment).addToBackStack(null).commit();
     }
 
     @Override
@@ -101,7 +98,6 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
     @Override
     public void onGetCurrentUserSuccess(ResponseUserInfoDTO u) {
         currentUser = u;
-        tvUserName.setText("User: " + currentUser.getUsername());
     }
 
     @Override
