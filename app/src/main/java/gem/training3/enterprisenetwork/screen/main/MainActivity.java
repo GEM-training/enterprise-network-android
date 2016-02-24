@@ -14,7 +14,7 @@ import gem.training3.enterprisenetwork.common.util.DialogUtils;
 import gem.training3.enterprisenetwork.common.util.VarUtils;
 import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
 import gem.training3.enterprisenetwork.screen.fragment.HomeFragment;
-import gem.training3.enterprisenetwork.screen.fragment.WelcomeFragment;
+import gem.training3.enterprisenetwork.screen.fragment.welcome.WelcomeFragment;
 import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
 
 /**
@@ -36,6 +36,8 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
         homeFragment = new HomeFragment();
         welcomeFragment = new WelcomeFragment();
         getFragmentManager().beginTransaction().add(R.id.main_fl,welcomeFragment).addToBackStack(null).commit();
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @Override
