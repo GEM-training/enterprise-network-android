@@ -34,15 +34,15 @@
     <RelativeLayout
         android:id="@+id/welcome_button_rl"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/grey_100"
-        android:layout_alignParentBottom="true">
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/grey_200">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_alignParentRight="true"
-            android:text="navi" />
+            android:background="@drawable/select" />
 
     </RelativeLayout>
 

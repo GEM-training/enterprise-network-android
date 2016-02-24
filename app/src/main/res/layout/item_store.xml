@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/store_picture"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/default_profile" />
+
+    <TextView
+        android:id="@+id/store_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/store_picture"
+        android:text="@string/username_sample" />
+
+    <TextView
+        android:id="@+id/store_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/store_name"
+        android:layout_toRightOf="@id/store_picture"
+        android:text="@string/sample_address" />
+
+    <TextView
+        android:id="@+id/store_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/store_address"
+        android:layout_toRightOf="@id/store_picture"
+        android:text="@string/sample_phone" />
+
+</RelativeLayout>

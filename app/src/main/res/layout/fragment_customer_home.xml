@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/customer_info_rl"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <ImageView
+            android:id="@+id/customer_picture_tv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/default_profile" />
+
+        <TextView
+            android:id="@+id/customer_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/customer_picture_tv"
+            android:layout_centerInParent="true"
+            android:text="@string/username_sample"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/customer_address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/customer_name_tv"
+            android:layout_centerInParent="true"
+            android:text="@string/address_sample" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/customer_search_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/customer_info_rl"
+        android:hint="@string/search"
+        android:maxLines="1"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/customer_assets_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customer_search_et"
+        android:background="@color/green_400"
+        android:text="@string/assets"
+        android:textColor="@color/white" />
+
+    <RelativeLayout
+        android:id="@+id/customer_button_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/grey_200">
+
+        <Button
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/select" />
+
+        <Button
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/refresh" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/customer_list_stores_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/customer_button_rl"
+        android:layout_below="@+id/customer_assets_tv">
+
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>

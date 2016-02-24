@@ -43,7 +43,7 @@
 
 
     <!--String related to home main-->
-    <string name="prompt_search">Search</string>
+    <string name="search">Search</string>
     <string name="prompt_number_sample">100</string>
     <string name="prompt_enterprises">enterprises</string>
     <string name="prompt_total_customers">Total customers</string>
@@ -77,4 +77,9 @@
     <string name="welcome_guide">Navigating Around the Enterprise Network</string>
     <string name="welcome_guide_2">Tap the icon on the button right corner\nto select a working module.</string>
     <string name="switch_account">switch Account</string>
+    <string name="username_sample">Anh Quan</string>
+    <string name="address_sample">62 Tran Thai Tong, Cau Giay, Ha Noi</string>
+    <string name="assets">Assets</string>
+    <string name="sample_address">62 Tran Thai Tong, Cau Giay</string>
+    <string name="sample_phone">04888666</string>
 </resources>
