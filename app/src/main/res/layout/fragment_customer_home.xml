@@ -8,7 +8,8 @@
     <RelativeLayout
         android:id="@+id/customer_info_rl"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="200dp"
+        android:background="@color/light_blue_800">
 
         <ImageView
             android:id="@+id/customer_picture_tv"
@@ -24,6 +25,7 @@
             android:layout_below="@id/customer_picture_tv"
             android:layout_centerInParent="true"
             android:text="@string/username_sample"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <TextView
@@ -32,7 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/customer_name_tv"
             android:layout_centerInParent="true"
-            android:text="@string/address_sample" />
+            android:text="@string/address_sample"
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 
