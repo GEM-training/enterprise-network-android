@@ -5,9 +5,12 @@
     android:orientation="vertical">
 
     <TextView
-        android:text="List product images"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="100dp"
+        android:text="List product images" />
 
-
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/product_list_info_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 </LinearLayout>
