@@ -13,7 +13,7 @@ import retrofit2.http.POST;
 /**
  * Created by huylv on 22/02/2016.
  */
-public interface CliService {
+public interface UserService {
     @Headers("Content-Type:application/json")
     @POST("/login")
     Call<ResponseDTO> login(@Body UserInfoDTO user);

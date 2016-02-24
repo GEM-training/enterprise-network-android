@@ -10,7 +10,7 @@ public class ServiceBuilder {
     private static final String BASE_URL = "http://172.16.10.66:8080";
 
     private static Retrofit sInstance;
-    private static CliService sService;
+    private static UserService sService;
 
     private static Retrofit getRetrofit() {
         if (sInstance == null) {
@@ -23,9 +23,9 @@ public class ServiceBuilder {
         return sInstance;
     }
 
-    public static CliService getService() {
+    public static UserService getService() {
         if (sService == null) {
-            sService = getRetrofit().create(CliService.class);
+            sService = getRetrofit().create(UserService.class);
         }
 
         return sService;
