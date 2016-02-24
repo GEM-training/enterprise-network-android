@@ -1,27 +1,19 @@
 package gem.training3.enterprisenetwork.screen.login;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 
-import com.google.gson.Gson;
-
 import butterknife.Bind;
 import butterknife.OnClick;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.base.BaseActivity;
-import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.common.util.DeviceUtils;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
 import gem.training3.enterprisenetwork.common.util.NetworkUtils;
-import gem.training3.enterprisenetwork.common.util.VarUtils;
-import gem.training3.enterprisenetwork.network.Session;
 import gem.training3.enterprisenetwork.network.dto.ResponseDTO;
-import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
 import gem.training3.enterprisenetwork.screen.main.MainActivity;
 import retrofit2.Response;
 
@@ -30,16 +22,16 @@ import retrofit2.Response;
  */
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginView {
 
-    @Bind(R.id.etLoginEmail)
+    @Bind(R.id.login_email_et)
     EditText etLoginEmail;
 
-    @Bind(R.id.etLoginPassword)
+    @Bind(R.id.login_password_et)
     EditText etLoginPassword;
 
     @Bind(R.id.pbLogin)
     ProgressBar pbLogin;
 
-    @Bind(R.id.svLoginForm)
+    @Bind(R.id.login_form_sv)
     ScrollView svLoginForm;
 
     @Override
@@ -59,22 +51,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void onLoginSuccess(Response<ResponseDTO> response) {
-        VarUtils.LOGGED_IN = true;
-        //put user info to intent
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
-        Gson gson = new Gson();
-        ResponseDTO responseDTO = (ResponseDTO) response.body();
-
-        ResponseUserInfoDTO responseUserInfo = gson.fromJson(gson.toJson(responseDTO.getReturnObject()), ResponseUserInfoDTO.class);
-
-        Session.setUser(responseUserInfo);
-
-        String json = gson.toJson(responseUserInfo);
-        Log.e("cxz", json);
-
-        //save to SP
-        SharedPreferences sp = getSharedPreferences(Constants.USER_INFO, MODE_PRIVATE);
-        sp.edit().putString(Constants.SPKEY_USERJSON, json).commit();
         startActivity(i);
         finish();
     }
@@ -84,15 +61,26 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @Override
+    public void onRequestError(int errorCode, String errorMessage) {
+        pbLogin.setVisibility(View.GONE);
+        svLoginForm.setVisibility(View.VISIBLE);
+        DialogUtils.showErrorAlert(this,errorMessage);
+    }
+
+    @Override
     public LoginPresenter onCreatePresenter() {
         return new LoginPresenterImpl(this);
     }
 
-    @OnClick(R.id.btLogin)
+    @OnClick(R.id.login_login_bt)
     public void doLogin() {
         if(!NetworkUtils.networkConnected(this)){
-            DialogUtils.showErrorAlert(this, "Network error!");
+            DialogUtils.showErrorAlert(this, getString(R.string.dialog_title_content_network_problem));
         }else {
+            //just for testing
+            etLoginEmail.setText("huylv");
+            etLoginPassword.setText("123456");
+
             getPresenter().doLogin(this, etLoginEmail.getText().toString(),
                     etLoginPassword.getText().toString(), DeviceUtils.getDeviceId(this));
             pbLogin.setVisibility(View.VISIBLE);

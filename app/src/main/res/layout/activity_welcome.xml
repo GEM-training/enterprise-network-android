@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/welcome_get_start"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="@string/welcome_app_name_1"
+        android:textColor="#114773"
+        android:textSize="70dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:gravity="center_horizontal"
+        android:text="@string/welcome_app_name_2"
+        android:textColor="#114773"
+        android:textSize="70dp"
+        android:textStyle="bold" />
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:layout_width="@dimen/welcome_signup_bt"
+        android:layout_height="wrap_content"
+        app:mrl_rippleColor="@color/blue_800"
+        app:mrl_rippleOverlay="true"
+        >
+
+        <Button
+            android:id="@+id/welcome_signup_customer"
+            android:layout_width="@dimen/welcome_signup_bt"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundbutton"
+            android:padding="10dp"
+            android:text="@string/welcome_signup_customer"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:layout_width="@dimen/welcome_signup_bt"
+        android:layout_height="wrap_content"
+        app:mrl_rippleColor="@color/blue_800"
+        app:mrl_rippleOverlay="true"
+        android:layout_marginTop="10dp"
+        >
+
+        <Button
+            android:id="@+id/welcome_setup_company"
+            android:layout_width="@dimen/welcome_signup_bt"
+            android:layout_height="wrap_content"
+
+
+            android:background="@drawable/roundbutton"
+
+            android:padding="10dp"
+            android:text="@string/welcome_setup"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_have_account"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/welcome_signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/welcome_signin"
+            android:textColor="@color/green_200"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

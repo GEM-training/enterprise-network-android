@@ -3,11 +3,8 @@ package gem.training3.enterprisenetwork.base;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
-import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
 
 /**
@@ -57,15 +54,14 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     @Override
     public void hideProgress() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
-        }
+//        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+//            mProgressDialog.dismiss();
+//        }
     }
 
     @Override
     public void onRequestError(int errorCode, String errorMessage) {
         DialogUtils.showErrorAlert(this, errorMessage);
-        hideProgress();
     }
 
     @Override

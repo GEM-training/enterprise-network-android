@@ -15,8 +15,8 @@ import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.network.Session;
 import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
-import gem.training3.enterprisenetwork.screen.login.LoginActivity;
 import gem.training3.enterprisenetwork.screen.main.MainActivity;
+import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
 
 /**
  * Created by huylv on 17/02/2016.
@@ -51,7 +51,7 @@ public class SplashActivity extends Activity {
                     Intent i = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(i);
                 }else{
-                    Intent i = new Intent(SplashActivity.this, LoginActivity.class);
+                    Intent i = new Intent(SplashActivity.this, WelcomeActivity.class);
                     startActivity(i);
                 }
                 finish();

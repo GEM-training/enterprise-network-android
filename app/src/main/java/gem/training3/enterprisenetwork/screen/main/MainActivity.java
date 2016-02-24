@@ -35,6 +35,8 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
         super.onCreate(savedInstanceState);
 
         getPresenter().getCurrentUser();
+
+        homeFragment = new HomeFragment();
     }
 
     @Override
