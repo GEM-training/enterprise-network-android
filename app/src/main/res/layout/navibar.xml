@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navibar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/navi_down_height"
+    android:layout_alignParentBottom="true"
+    android:background="@color/grey_300"
+    android:padding="4dp">
+
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:layout_width="@dimen/navi_down_icon"
+        android:layout_height="@dimen/navi_down_icon"
+        android:layout_alignParentRight="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/button1" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:layout_width="@dimen/navi_down_icon"
+        android:layout_height="@dimen/navi_down_icon"
+        android:layout_alignParentLeft="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/refresh" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+</RelativeLayout>

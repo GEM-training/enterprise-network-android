@@ -37,7 +37,9 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
         welcomeFragment = new WelcomeFragment();
         getFragmentManager().beginTransaction().add(R.id.main_fl,welcomeFragment).addToBackStack(null).commit();
 
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        if(getSupportActionBar()!=null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
     }
 
     @Override

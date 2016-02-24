@@ -4,12 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <RelativeLayout
         android:id="@+id/customer_info_rl"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/light_blue_800">
+        android:background="@color/colorPrimary">
 
         <ImageView
             android:id="@+id/customer_picture_tv"
@@ -57,31 +56,15 @@
         android:text="@string/assets"
         android:textColor="@color/white" />
 
-    <RelativeLayout
-        android:id="@+id/customer_button_rl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/grey_200">
-
-        <Button
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentRight="true"
-            android:background="@mipmap/select" />
-
-        <Button
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentLeft="true"
-            android:background="@mipmap/refresh" />
-    </RelativeLayout>
+    <include
+        android:id="@+id/include"
+        layout="@layout/navibar"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/customer_list_stores_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/customer_button_rl"
+        android:layout_above="@+id/include"
         android:layout_below="@+id/customer_assets_tv">
 
     </android.support.v7.widget.RecyclerView>

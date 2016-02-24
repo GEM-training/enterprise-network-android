@@ -67,7 +67,5 @@
 
     </RelativeLayout>
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/navi_down" />
+
 </RelativeLayout>
