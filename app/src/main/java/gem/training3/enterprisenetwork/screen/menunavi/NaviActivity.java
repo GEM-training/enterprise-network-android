@@ -11,7 +11,7 @@ public class NaviActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.menu_navi;
+        return R.layout.activity_navi_menu;
     }
 
     @Override

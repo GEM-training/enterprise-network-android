@@ -34,7 +34,7 @@ public abstract class BaseActivityDrawer<T extends BasePresenter> extends BaseAc
         int id = item.getItemId();
 
         switch (id){
-            case R.id.nav_camera:
+            case R.id.nav_home:
 
                 break;
             case R.id.nav_logout:

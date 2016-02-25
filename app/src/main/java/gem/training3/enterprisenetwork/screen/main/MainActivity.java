@@ -8,13 +8,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import butterknife.OnClick;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.base.BaseActivityDrawer;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
 import gem.training3.enterprisenetwork.common.util.VarUtils;
 import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
-import gem.training3.enterprisenetwork.screen.fragment.HomeFragment;
+import gem.training3.enterprisenetwork.screen.fragment.allstore.AllStoreFragment;
 import gem.training3.enterprisenetwork.screen.fragment.welcome.WelcomeFragment;
+import gem.training3.enterprisenetwork.screen.menunavi.NaviActivity;
 import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
 
 /**
@@ -22,8 +24,8 @@ import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
  */
 public class MainActivity extends BaseActivityDrawer<MainPresenter> implements MainView {
 
-    public HomeFragment homeFragment;
     public WelcomeFragment welcomeFragment;
+    public AllStoreFragment allStoreFragment;
 
     ResponseUserInfoDTO currentUser;
 
@@ -33,13 +35,12 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
 
         getPresenter().getCurrentUser();
 
-        homeFragment = new HomeFragment();
         welcomeFragment = new WelcomeFragment();
-        getFragmentManager().beginTransaction().add(R.id.main_fl,welcomeFragment).addToBackStack(null).commit();
+        allStoreFragment = new AllStoreFragment();
+        getFragmentManager().beginTransaction().replace(R.id.main_fl,welcomeFragment).addToBackStack(null).commit();
 
-        if(getSupportActionBar()!=null) {
-            getSupportActionBar().setDisplayShowTitleEnabled(false);
-        }
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
     }
 
     @Override
@@ -77,6 +78,11 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
 
     }
 
+    @OnClick(R.id.navi_menu_bt)
+    void openNaviMenu(){
+        Intent i = new Intent(MainActivity.this, NaviActivity.class);
+        startActivity(i);
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -85,11 +91,14 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
         int id = item.getItemId();
 
         switch (id){
-            case R.id.nav_camera:
-
+            case R.id.nav_home:
+                getFragmentManager().beginTransaction().replace(R.id.main_fl,welcomeFragment).addToBackStack(null).commit();
                 break;
             case R.id.nav_logout:
                 getPresenter().doLogout(this);
+                break;
+            case R.id.nav_all_store:
+                getFragmentManager().beginTransaction().replace(R.id.main_fl,allStoreFragment).addToBackStack(null).commit();
                 break;
         }
 

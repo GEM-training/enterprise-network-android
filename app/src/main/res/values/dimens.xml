@@ -9,6 +9,7 @@
 
     <dimen name="welcome_signup_bt">300dp</dimen>
 
-    <dimen name="navi_down_height">48dp</dimen>
-    <dimen name="navi_down_icon">40dp</dimen>
+    <dimen name="navi_down_height">40dp</dimen>
+    <dimen name="navi_down_icon">32dp</dimen>
+    <dimen name="navi_menu_sale">90dp</dimen>
 </resources>

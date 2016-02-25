@@ -3,7 +3,6 @@ package gem.training3.enterprisenetwork.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.RelativeLayout;
 
 import butterknife.Bind;
@@ -25,7 +24,6 @@ public abstract class BaseActivityToolbar <T extends BasePresenter> extends Base
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.e("cxz","find toolbar");
         toolBar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolBar);
     }

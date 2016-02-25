@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+            <ImageView
+                android:src="@mipmap/sales"
+                android:layout_width="@dimen/navi_menu_sale"
+                android:layout_height="@dimen/navi_menu_sale"
+                android:id="@+id/navi_sales_iv" />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:text="Sales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/navi_sales_iv"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/ll1"
+            android:gravity="center_horizontal"
+            >
+            <ImageView
+                android:src="@mipmap/customers"
+                android:layout_width="@dimen/navi_menu_sale"
+                android:layout_height="@dimen/navi_menu_sale"
+                />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:text="Customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

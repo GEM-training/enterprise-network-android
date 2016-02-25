@@ -29,6 +29,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".screen.welcome.WelcomeActivity"/>
+        <activity android:name=".screen.menunavi.NaviActivity"
+            android:theme="@style/AppTheme.Transparent"
+            />
     </application>
 
 </manifest>

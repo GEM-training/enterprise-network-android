@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_margin="5dp">
 
-    <ImageView
-        android:id="@+id/product_picture_iv"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@mipmap/default_profile" />
-
-    <TextView
-        android:id="@+id/product_name_tv"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/product_picture_iv"
-        android:text="@string/username_sample"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/product_picture_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/default_profile" />
 
-    <TextView
-        android:id="@+id/product_address_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/product_name_tv"
-        android:layout_toRightOf="@id/product_picture_iv"
-        android:text="@string/sample_address" />
+        <TextView
+            android:id="@+id/product_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/product_picture_iv"
+            android:text="@string/username_sample"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/product_phone_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/product_address_tv"
-        android:layout_toRightOf="@id/product_picture_iv"
-        android:text="@string/sample_phone" />
+        <TextView
+            android:id="@+id/product_description_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_name_tv"
+            android:layout_toRightOf="@id/product_picture_iv"
+            android:text="@string/sample_address" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/product_phone_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_description_tv"
+            android:layout_toRightOf="@id/product_picture_iv"
+            android:text="@string/sample_phone" />
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
