@@ -26,7 +26,7 @@ public abstract class BaseActivityToolbar <T extends BasePresenter> extends Base
         super.onCreate(savedInstanceState);
 
         Log.e("cxz","find toolbar");
-//        toolBar = (Toolbar)findViewById(R.id.toolbar);
-//        setSupportActionBar(toolBar);
+        toolBar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolBar);
     }
 }

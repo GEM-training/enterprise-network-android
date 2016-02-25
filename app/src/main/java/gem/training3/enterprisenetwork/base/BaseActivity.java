@@ -3,7 +3,6 @@ package gem.training3.enterprisenetwork.base;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import butterknife.ButterKnife;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
@@ -19,19 +18,11 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.e("cxz","setcontent");
         setContentView(getLayoutId());
-        Log.e("cxz","setxong");
 
-        // Inject views
         ButterKnife.bind(this);
-        Log.e("cxz","setxong2");
-        // Prepare layout
         onPrepareLayout();
-        Log.e("cxz","setxong3");
-        // Presenter for this view
         mPresenter = onCreatePresenter();
-        Log.e("cxz","setxong4");
     }
 
     @Override
