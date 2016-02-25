@@ -32,6 +32,15 @@ public class ResponseUserInfoDTO  extends BaseDTO {
         return role;
     }
 
+    @Override
+    public String toString() {
+        return "ResponseUserInfoDTO{" +
+                "username='" + username + '\'' +
+                ", token='" + token + '\'' +
+                ", role=" + role +
+                '}';
+    }
+
     public void setRole(List<String> role) {
         this.role = role;
     }

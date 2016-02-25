@@ -1,5 +1,8 @@
 package gem.training3.enterprisenetwork.adapter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +13,7 @@ import java.util.ArrayList;
 
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.network.dto.Store;
+import gem.training3.enterprisenetwork.screen.allproduct.AllProductActivity;
 
 /**
  * Created by huylv on 25/02/2016.
@@ -17,9 +21,11 @@ import gem.training3.enterprisenetwork.network.dto.Store;
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHolder> {
 
     ArrayList<Store> storeArrayList;
+    Context context;
 
-    public StoreAdapter(ArrayList<Store> s) {
+    public StoreAdapter(ArrayList<Store> s,Context c) {
         storeArrayList = s;
+        context = c;
     }
 
     @Override
@@ -30,10 +36,18 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
     }
 
     @Override
-    public void onBindViewHolder(StoreViewHolder holder, int position) {
+    public void onBindViewHolder(StoreViewHolder holder, final int position) {
         final Store item = storeArrayList.get(position);
-        holder.product_name_tv.setText(storeArrayList.get(position).getName());
-
+        holder.store_name_tv.setText(storeArrayList.get(position).getName());
+        holder.store_address_tv.setText(item.getAddress());
+        holder.store_layout_cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, AllProductActivity.class);
+                i.putExtra("storeId",item.getId());
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -42,14 +56,16 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
     }
 
     class StoreViewHolder extends RecyclerView.ViewHolder {
-        TextView product_name_tv;
-        TextView product_address_tv;
-        TextView product_phone_tv;
+        TextView store_name_tv;
+        TextView store_address_tv;
+        TextView store_phone_tv;
+        CardView store_layout_cv;
         public StoreViewHolder(View v){
             super(v);
-            product_name_tv = (TextView)v.findViewById(R.id.product_name_tv);
-            product_address_tv = (TextView)v.findViewById(R.id.product_description_tv);
-            product_phone_tv = (TextView)v.findViewById(R.id.product_phone_tv);
+            store_layout_cv = (CardView)v.findViewById(R.id.store_layout_cv);
+            store_name_tv = (TextView)v.findViewById(R.id.store_name_tv);
+            store_address_tv = (TextView)v.findViewById(R.id.store_description_tv);
+            store_phone_tv = (TextView)v.findViewById(R.id.store_phone_tv);
 
         }
 

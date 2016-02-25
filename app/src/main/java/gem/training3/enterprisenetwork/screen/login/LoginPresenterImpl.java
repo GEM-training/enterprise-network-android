@@ -2,6 +2,7 @@ package gem.training3.enterprisenetwork.screen.login;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -48,7 +49,8 @@ public class LoginPresenterImpl implements LoginPresenter {
     private BaseCallback mLoginCallback = new BaseCallback() {
         @Override
         public void onError(int errorCode, String errorMessage) {
-            mView.onRequestError(errorCode, errorMessage);
+            Log.e("cxz",errorCode+"-"+errorMessage);
+            mView.onRequestError(errorCode, "1"+errorMessage);
         }
 
         @Override
@@ -59,9 +61,7 @@ public class LoginPresenterImpl implements LoginPresenter {
 
             Gson gson = new Gson();
             ResponseDTO responseDTO = (ResponseDTO) response.body();
-
             ResponseUserInfoDTO responseUserInfo = gson.fromJson(gson.toJson(responseDTO.getReturnObject()), ResponseUserInfoDTO.class);
-
             Session.setUser(responseUserInfo);
 
             String json = gson.toJson(responseUserInfo);

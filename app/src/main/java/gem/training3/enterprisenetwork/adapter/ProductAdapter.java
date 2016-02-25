@@ -46,8 +46,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         TextView product_description_tv;
         public ProductViewHolder(View v){
             super(v);
-            product_name_tv = (TextView)v.findViewById(R.id.product_name_tv);
-            product_description_tv = (TextView)v.findViewById(R.id.product_description_tv);
+            product_name_tv = (TextView)v.findViewById(R.id.store_name_tv);
+            product_description_tv = (TextView)v.findViewById(R.id.store_description_tv);
         }
 
     }

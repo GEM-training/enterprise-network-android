@@ -2,40 +2,42 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    android:id="@+id/store_layout_cv"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/product_picture_iv"
+            android:id="@+id/store_picture_iv"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@mipmap/default_profile" />
 
         <TextView
-            android:id="@+id/product_name_tv"
+            android:id="@+id/store_name_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/product_picture_iv"
+            android:layout_toRightOf="@id/store_picture_iv"
             android:text="@string/username_sample"
             android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/product_description_tv"
+            android:id="@+id/store_description_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/product_name_tv"
-            android:layout_toRightOf="@id/product_picture_iv"
+            android:layout_below="@id/store_name_tv"
+            android:layout_toRightOf="@id/store_picture_iv"
             android:text="@string/sample_address" />
 
         <TextView
-            android:id="@+id/product_phone_tv"
+            android:id="@+id/store_phone_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/product_description_tv"
-            android:layout_toRightOf="@id/product_picture_iv"
+            android:layout_below="@id/store_description_tv"
+            android:layout_toRightOf="@id/store_picture_iv"
             android:text="@string/sample_phone" />
     </RelativeLayout>
 

@@ -32,6 +32,7 @@
         <activity android:name=".screen.menunavi.NaviActivity"
             android:theme="@style/AppTheme.Transparent"
             />
+        <activity android:name=".screen.allproduct.AllProductActivity"/>
     </application>
 
 </manifest>
