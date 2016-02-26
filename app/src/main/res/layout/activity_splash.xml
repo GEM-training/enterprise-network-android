@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Enterprise\nNetwork"
+        android:text="@string/prompt_enterprise_network"
         android:id="@+id/textView2"
         android:textSize="70dp"
         android:textStyle="bold"

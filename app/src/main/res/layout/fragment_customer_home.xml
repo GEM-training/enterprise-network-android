@@ -7,15 +7,16 @@
     <RelativeLayout
         android:id="@+id/customer_info_rl"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/customer_info_rl_height"
         android:background="@color/colorPrimary">
 
         <ImageView
             android:id="@+id/customer_picture_tv"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/picture_width"
+            android:layout_height="@dimen/picture_height"
             android:layout_centerInParent="true"
-            android:background="@mipmap/default_profile" />
+            android:background="@mipmap/default_profile"
+            android:contentDescription="@string/default_picture" />
 
         <TextView
             android:id="@+id/customer_name_tv"
@@ -23,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/customer_picture_tv"
             android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dimen_5"
             android:text="@string/username_sample"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -33,6 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/customer_name_tv"
             android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dimen_5"
             android:text="@string/address_sample"
             android:textColor="@color/white" />
 
@@ -58,7 +61,7 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/navibar"/>
+        layout="@layout/navigation_bar" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/customer_list_stores_rv"

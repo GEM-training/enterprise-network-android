@@ -15,6 +15,7 @@
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
+    <string name="prompt_enterprise_network">Enterprise\nNetwork</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -27,7 +28,7 @@
         completions."
     </string>
 
-    <string name="dialog_title_error">Lỗi</string>
+    <string name="dialog_title_error">Error</string>
     <string name="dialog_content_server_problem">Server đang tạm thời bị lỗi, bạn thử lại sau.</string>
     <string name="dialog_title_common">Thông báo</string>
     <string name="dialog_title_content_network_problem">Không có kết nối mạng</string>
@@ -40,7 +41,6 @@
     <string name="welcome_app_name_2">Network</string>
     <string name="welcome_have_account">You have an account already?</string>
     <string name="welcome_signin">Sign in</string>
-
 
     <!--String related to home main-->
     <string name="search">Search</string>
@@ -85,4 +85,11 @@
     <string name="sample_number">0</string>
     <string name="stores">stores</string>
     <string name="product">products</string>
+    <string name="list_product_images">list_product_images</string>
+    <string name="value">Value</string>
+
+    <!--string related to login-->
+
+    <string name="customer">Customer</string>
+    <string name="default_picture">Default picture</string>
 </resources>

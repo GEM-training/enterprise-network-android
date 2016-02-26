@@ -37,5 +37,7 @@
         android:id="@+id/store_list_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/store_total_number_tv"></android.support.v7.widget.RecyclerView>
+        android:layout_below="@id/store_total_number_tv">
+
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>

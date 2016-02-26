@@ -3,21 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        android:id="@+id/toolbar"
-        />
+        android:background="@color/colorPrimary" />
+
     <EditText
         android:id="@+id/products_search_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
         android:hint="@string/search"
         android:maxLines="1"
-        android:singleLine="true"
-        android:layout_below="@+id/toolbar"
-        />
+        android:singleLine="true" />
 
     <TextView
         android:id="@+id/products_total_number_tv"
@@ -36,17 +36,19 @@
         android:text="@string/product" />
 
     <android.support.v7.widget.RecyclerView
-        android:visibility="gone"
         android:id="@+id/product_list_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/products_total_number_tv"></android.support.v7.widget.RecyclerView>
+        android:layout_below="@id/products_total_number_tv"
+        android:visibility="gone">
+
+    </android.support.v7.widget.RecyclerView>
 
     <ProgressBar
         android:id="@+id/product_list_pb"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/products_total_number_tv"/>
+        android:layout_below="@id/products_total_number_tv" />
 
-    <include layout="@layout/navibar"/>
+    <include layout="@layout/navigation_bar" />
 </RelativeLayout>
