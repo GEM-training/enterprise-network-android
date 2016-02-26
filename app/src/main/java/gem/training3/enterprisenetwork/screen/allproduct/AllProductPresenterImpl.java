@@ -27,7 +27,7 @@ public class AllProductPresenterImpl implements AllProductPresenter {
             @Override
             public void onResponse(Call<Product[]> call, Response<Product[]> response) {
                 Product[] ps = response.body();
-                ArrayList<Product> productArrayList = new ArrayList<Product>(Arrays.asList(ps));
+                ArrayList<Product> productArrayList = new ArrayList<>(Arrays.asList(ps));
                 view.onGetAllProductSuccess(productArrayList);
             }
 

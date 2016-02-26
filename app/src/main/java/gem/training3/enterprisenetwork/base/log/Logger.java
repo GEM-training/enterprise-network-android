@@ -27,11 +27,6 @@ public class Logger {
             Log.e(TAG, msg);
     }
 
-    public static void d(String msg) {
-        if (DEBUG_MODE)
-            Log.d(TAG, msg);
-    }
-
     public static void i(String msg) {
         if (DEBUG_MODE)
             Log.i(TAG, msg);
@@ -52,9 +47,9 @@ public class Logger {
             Log.e(tag, msg);
     }
 
-    public static void d(String tag, String msg) {
+    public static void d(String msg) {
         if (DEBUG_MODE)
-            Log.d(tag, msg);
+            Log.d(Logger.TAG_MEM, msg);
     }
 
     public static void i(String tag, String msg) {
@@ -91,9 +86,9 @@ public class Logger {
         df.setMaximumFractionDigits(2);
         df.setMinimumFractionDigits(2);
 
-        Logger.d(TAG_MEM, "debug. =================================");
-        Logger.d(TAG_MEM, "debug.heap native: allocated " + df.format(allocated) + "MB of " + df.format(available) + "MB (" + df.format(free) + "MB free) in [" + clazz.getName().replaceAll("com.myapp.android.", "") + "]");
-        Logger.d(TAG_MEM, "debug.memory: allocated: " + df.format((double) (Runtime.getRuntime().totalMemory() / 1048576)) + "MB of " + df.format((double) (Runtime.getRuntime().maxMemory() / 1048576)) + "MB (" + df.format((double) (Runtime.getRuntime().freeMemory() / 1048576)) + "MB free)");
+        Logger.d("debug. =================================");
+        Logger.d("debug.heap native: allocated " + df.format(allocated) + "MB of " + df.format(available) + "MB (" + df.format(free) + "MB free) in [" + clazz.getName().replaceAll("com.myapp.android.", "") + "]");
+        Logger.d("debug.memory: allocated: " + df.format((double) (Runtime.getRuntime().totalMemory() / 1048576)) + "MB of " + df.format((double) (Runtime.getRuntime().maxMemory() / 1048576)) + "MB (" + df.format((double) (Runtime.getRuntime().freeMemory() / 1048576)) + "MB free)");
         System.gc();
         System.gc();
 

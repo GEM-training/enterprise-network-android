@@ -8,6 +8,6 @@ import gem.training3.enterprisenetwork.network.dto.Product;
 /**
  * Created by huylv on 26-Feb-16.
  */
-public interface AllProductView extends BaseView<AllProductPresenter> {
+interface AllProductView extends BaseView<AllProductPresenter> {
     void onGetAllProductSuccess(ArrayList<Product> productArrayList);
 }

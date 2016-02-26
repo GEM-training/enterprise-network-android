@@ -11,9 +11,7 @@ import android.widget.Toast;
 import butterknife.OnClick;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.base.BaseActivityDrawer;
-import gem.training3.enterprisenetwork.common.util.DialogUtils;
 import gem.training3.enterprisenetwork.common.util.VarUtils;
-import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
 import gem.training3.enterprisenetwork.screen.fragment.allstore.AllStoreFragment;
 import gem.training3.enterprisenetwork.screen.fragment.welcome.WelcomeFragment;
 import gem.training3.enterprisenetwork.screen.menunavi.NaviActivity;
@@ -27,13 +25,9 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
     private WelcomeFragment welcomeFragment;
     private AllStoreFragment allStoreFragment;
 
-    private ResponseUserInfoDTO currentUser;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        getPresenter().getCurrentUser();
 
         welcomeFragment = new WelcomeFragment();
         allStoreFragment = new AllStoreFragment();
@@ -109,21 +103,10 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
 
 
     @Override
-    public void onGetCurrentUserSuccess(ResponseUserInfoDTO u) {
-        currentUser = u;
-    }
-
-    @Override
     public void onLogoutSuccess() {
         Intent i = new Intent(MainActivity.this, WelcomeActivity.class);
         startActivity(i);
         finish();
     }
-
-    @Override
-    public void onNetworkError() {
-        DialogUtils.showErrorAlert(this,getString(R.string.dialog_title_content_network_problem));
-    }
-
 
 }
