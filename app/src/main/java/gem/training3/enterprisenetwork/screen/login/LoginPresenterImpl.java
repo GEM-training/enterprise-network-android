@@ -69,7 +69,7 @@ public class LoginPresenterImpl implements LoginPresenter {
             //save to SP
             SharedPreferences sp = context.getSharedPreferences(Constants.USER_INFO, Activity.MODE_PRIVATE);
             sp.edit().putString(Constants.SPKEY_USERJSON, json).commit();
-
+            Log.e("cxz",json);
             mView.onLoginSuccess();
         }
 
