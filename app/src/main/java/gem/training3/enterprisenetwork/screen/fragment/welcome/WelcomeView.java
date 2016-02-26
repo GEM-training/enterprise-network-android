@@ -6,6 +6,6 @@ import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
 /**
  * Created by huylv on 24/02/2016.
  */
-public interface WelcomeView extends BaseView<WelcomePresenter> {
+interface WelcomeView extends BaseView<WelcomePresenter> {
     void onGetCurrentUserSuccess(ResponseUserInfoDTO u);
 }

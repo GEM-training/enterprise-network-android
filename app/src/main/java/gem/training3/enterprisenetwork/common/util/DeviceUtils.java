@@ -8,9 +8,6 @@ import android.telephony.TelephonyManager;
  * Created by neo on 2/16/2016.
  */
 public class DeviceUtils {
-
-
-
     public static String getDeviceId(Context context) {
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return telephonyManager.getDeviceId();

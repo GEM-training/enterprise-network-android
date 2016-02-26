@@ -25,8 +25,8 @@ public class AllStoreFragment extends BaseFragment<AllStorePresenter> implements
     @Bind(R.id.store_total_number_tv)
     TextView store_total_number_tv;
 
-    ArrayList<Store> allStoreList;
-    StoreAdapter adapter;
+    private ArrayList<Store> allStoreList;
+    private StoreAdapter adapter;
 
 
     @Override

@@ -20,7 +20,7 @@ import retrofit2.Response;
  * Created by huylv on 22/02/2016.
  */
 public class LoginPresenterImpl implements LoginPresenter {
-    private LoginView mView;
+    private final LoginView mView;
 
     public LoginPresenterImpl(LoginView view) {
         mView = view;
@@ -46,7 +46,7 @@ public class LoginPresenterImpl implements LoginPresenter {
     /**
      * Login request callback
      */
-    private BaseCallback mLoginCallback = new BaseCallback() {
+    private final BaseCallback mLoginCallback = new BaseCallback() {
         @Override
         public void onError(int errorCode, String errorMessage) {
             mView.onRequestError(errorMessage);
@@ -59,7 +59,7 @@ public class LoginPresenterImpl implements LoginPresenter {
             //put user info to intent
 
             Gson gson = new Gson();
-            ResponseDTO responseDTO = (ResponseDTO) response.body();
+            ResponseDTO responseDTO = response.body();
             ResponseUserInfoDTO responseUserInfo = gson.fromJson(gson.toJson(responseDTO.getReturnObject()), ResponseUserInfoDTO.class);
             Session.setUser(responseUserInfo);
 

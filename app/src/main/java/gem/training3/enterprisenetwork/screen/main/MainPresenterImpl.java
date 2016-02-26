@@ -15,7 +15,7 @@ import retrofit2.Response;
  * Created by huylv on 22/02/2016.
  */
 public class MainPresenterImpl implements MainPresenter {
-    private MainView view;
+    private final MainView view;
 
     public MainPresenterImpl(MainView view) {
         this.view = view;
@@ -35,7 +35,7 @@ public class MainPresenterImpl implements MainPresenter {
                 if (response.isSuccess()) {
 
                     Session.removeUser();
-                    c.getSharedPreferences(Constants.USER_INFO, c.MODE_PRIVATE).edit().clear().commit();
+                    c.getSharedPreferences(Constants.USER_INFO, Context.MODE_PRIVATE).edit().clear().commit();
 
                     view.onLogoutSuccess();
                 }

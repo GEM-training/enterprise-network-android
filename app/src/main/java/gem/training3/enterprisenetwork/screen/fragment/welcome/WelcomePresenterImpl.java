@@ -6,7 +6,7 @@ import gem.training3.enterprisenetwork.network.Session;
  * Created by huylv on 24/02/2016.
  */
 public class WelcomePresenterImpl implements WelcomePresenter {
-    WelcomeView mView;
+    private final WelcomeView mView;
 
     public WelcomePresenterImpl(WelcomeView v){mView=v;}
 

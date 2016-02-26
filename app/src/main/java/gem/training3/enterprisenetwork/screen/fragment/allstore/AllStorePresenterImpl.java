@@ -15,7 +15,7 @@ import retrofit2.Response;
  * Created by huylv on 26-Feb-16.
  */
 public class AllStorePresenterImpl implements AllStorePresenter {
-    private AllStoreView view;
+    private final AllStoreView view;
 
     public AllStorePresenterImpl(AllStoreView v){view = v;}
 

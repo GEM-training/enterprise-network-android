@@ -16,7 +16,7 @@ import gem.training3.enterprisenetwork.network.dto.Product;
  */
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
-    ArrayList<Product> productArrayList;
+    private final ArrayList<Product> productArrayList;
 
     public ProductAdapter(ArrayList<Product> s) {
         productArrayList = s;
@@ -25,8 +25,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product,parent,false);
-        ProductViewHolder customerHolder = new ProductViewHolder(v);
-        return customerHolder;
+        return new ProductViewHolder(v);
     }
 
     @Override
@@ -42,8 +41,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     class ProductViewHolder extends RecyclerView.ViewHolder {
-        TextView product_name_tv;
-        TextView product_description_tv;
+        final TextView product_name_tv;
+        final TextView product_description_tv;
         public ProductViewHolder(View v){
             super(v);
             product_name_tv = (TextView)v.findViewById(R.id.store_name_tv);

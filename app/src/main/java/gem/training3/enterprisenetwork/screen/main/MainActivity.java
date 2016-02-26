@@ -24,10 +24,10 @@ import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
  */
 public class MainActivity extends BaseActivityDrawer<MainPresenter> implements MainView {
 
-    public WelcomeFragment welcomeFragment;
-    public AllStoreFragment allStoreFragment;
+    private WelcomeFragment welcomeFragment;
+    private AllStoreFragment allStoreFragment;
 
-    ResponseUserInfoDTO currentUser;
+    private ResponseUserInfoDTO currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
         allStoreFragment = new AllStoreFragment();
         getFragmentManager().beginTransaction().replace(R.id.main_fl,welcomeFragment).addToBackStack(null).commit();
 
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        if(getSupportActionBar()!=null) getSupportActionBar().setDisplayShowTitleEnabled(false);
 
     }
 
@@ -59,19 +59,19 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (VarUtils.DOUBLEBACK) {
+            if (VarUtils.DOUBLE_BACK) {
                 finish();
                 return;
             }
 
-            VarUtils.DOUBLEBACK = true;
+            VarUtils.DOUBLE_BACK = true;
             Toast.makeText(this, getString(R.string.click_back_again), Toast.LENGTH_SHORT).show();
 
             new Handler().postDelayed(new Runnable() {
 
                 @Override
                 public void run() {
-                    VarUtils.DOUBLEBACK = false;
+                    VarUtils.DOUBLE_BACK = false;
                 }
             }, 2000);
         }

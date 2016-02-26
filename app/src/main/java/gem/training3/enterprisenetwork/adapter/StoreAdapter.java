@@ -20,8 +20,8 @@ import gem.training3.enterprisenetwork.screen.allproduct.AllProductActivity;
  */
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHolder> {
 
-    ArrayList<Store> storeArrayList;
-    Context context;
+    private final ArrayList<Store> storeArrayList;
+    private final Context context;
 
     public StoreAdapter(ArrayList<Store> s,Context c) {
         storeArrayList = s;
@@ -31,8 +31,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
     @Override
     public StoreViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_store,parent,false);
-        StoreViewHolder customerHolder = new StoreViewHolder(v);
-        return customerHolder;
+        return new StoreViewHolder(v);
     }
 
     @Override
@@ -56,16 +55,14 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
     }
 
     class StoreViewHolder extends RecyclerView.ViewHolder {
-        TextView store_name_tv;
-        TextView store_address_tv;
-        TextView store_phone_tv;
-        CardView store_layout_cv;
+        final TextView store_name_tv;
+        final TextView store_address_tv;
+        final CardView store_layout_cv;
         public StoreViewHolder(View v){
             super(v);
             store_layout_cv = (CardView)v.findViewById(R.id.store_layout_cv);
             store_name_tv = (TextView)v.findViewById(R.id.store_name_tv);
             store_address_tv = (TextView)v.findViewById(R.id.store_description_tv);
-            store_phone_tv = (TextView)v.findViewById(R.id.store_phone_tv);
 
         }
 

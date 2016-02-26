@@ -91,7 +91,7 @@ public class DialogUtils {
         }
     }
 
-    public static void dismissProgressDialog() {
+    private static void dismissProgressDialog() {
         try {
             if (sProgress != null && sProgress.isShowing()) {
                 sProgress.dismiss();

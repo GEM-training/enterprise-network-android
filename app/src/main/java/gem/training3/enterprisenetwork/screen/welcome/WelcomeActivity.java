@@ -1,7 +1,6 @@
 package gem.training3.enterprisenetwork.screen.welcome;
 
 import android.content.Intent;
-import android.os.Bundle;
 
 import butterknife.OnClick;
 import gem.training3.enterprisenetwork.R;
@@ -21,24 +20,13 @@ public class WelcomeActivity extends BaseActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @OnClick(R.id.welcome_signup_customer)
-    void signupCustomer(){
-
+    public BasePresenter onCreatePresenter() {
+        return null;
     }
 
     @OnClick(R.id.welcome_signin)
-    void startSigninActivity(){
-        Intent i = new Intent(WelcomeActivity.this, LoginActivity.class);
+    void startSignInActivity(){
+        Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
-    }
-
-    @Override
-    public BasePresenter onCreatePresenter() {
-        return null;
     }
 }

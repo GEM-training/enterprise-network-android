@@ -24,7 +24,7 @@ import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
 public class SplashActivity extends Activity {
     // Splash screen timer
     private static int SPLASH_TIME_OUT = 1000;
-    boolean LOGGEDIN = false;
+    private boolean LOGGEDIN = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

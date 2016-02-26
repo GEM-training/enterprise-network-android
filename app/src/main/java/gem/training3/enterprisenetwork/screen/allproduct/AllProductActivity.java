@@ -13,22 +13,15 @@ import butterknife.Bind;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.adapter.ProductAdapter;
 import gem.training3.enterprisenetwork.base.BaseActivityToolbar;
-import gem.training3.enterprisenetwork.base.BasePresenter;
-import gem.training3.enterprisenetwork.common.util.DialogUtils;
-import gem.training3.enterprisenetwork.network.ServiceBuilder;
-import gem.training3.enterprisenetwork.network.Session;
 import gem.training3.enterprisenetwork.network.dto.Product;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by huylv on 25/02/2016.
  */
-public class AllProductActivity extends BaseActivityToolbar {
+public class AllProductActivity extends BaseActivityToolbar<AllProductPresenter> implements AllProductView{
 
-    ArrayList<Product> productArrayList;
-    ProductAdapter adapter;
+    private ArrayList<Product> productArrayList;
+    private ProductAdapter adapter;
     @Bind(R.id.product_list_rv)
     RecyclerView product_list_rv;
 
@@ -53,30 +46,20 @@ public class AllProductActivity extends BaseActivityToolbar {
 
         Intent i = getIntent();
         Integer storeId = i.getIntExtra("storeId",1);
-        Call<Product[]> call = ServiceBuilder.getService().getProductByStore(Session.getCurrentUser().getToken(),storeId);
-        call.enqueue(new Callback<Product[]>() {
-            @Override
-            public void onResponse(Call<Product[]> call, Response<Product[]> response) {
-                Product[] ps = response.body();
-                for(Product p:ps){
-                    productArrayList.add(p);
-                }
-                adapter.notifyDataSetChanged();
-                product_list_rv.setVisibility(View.VISIBLE);
-                product_list_pb.setVisibility(View.GONE);
-            }
 
-            @Override
-            public void onFailure(Call<Product[]> call, Throwable t) {
-                product_list_rv.setVisibility(View.VISIBLE);
-                product_list_pb.setVisibility(View.GONE);
-                DialogUtils.showErrorAlert(AllProductActivity.this,t.getMessage());
-            }
-        });
+        getPresenter().getProductByStoreId(storeId);
     }
 
     @Override
-    public BasePresenter onCreatePresenter() {
-        return null;
+    public void onGetAllProductSuccess(ArrayList<Product> productArrayList) {
+        product_list_rv.setVisibility(View.VISIBLE);
+        product_list_pb.setVisibility(View.GONE);
+        this.productArrayList.addAll(productArrayList);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public AllProductPresenter onCreatePresenter() {
+        return new AllProductPresenterImpl(this);
     }
 }

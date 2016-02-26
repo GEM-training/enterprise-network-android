@@ -5,5 +5,5 @@ package gem.training3.enterprisenetwork.common.util;
  */
 public class VarUtils {
     public static boolean LOGGED_IN = false;
-    public static boolean DOUBLEBACK = false;
+    public static boolean DOUBLE_BACK = false;
 }
