@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center">
 
     <RelativeLayout
@@ -17,11 +18,21 @@
             android:orientation="vertical"
             android:gravity="center_horizontal"
             >
-            <ImageView
-                android:src="@mipmap/sales"
+
+            <com.balysv.materialripple.MaterialRippleLayout
                 android:layout_width="@dimen/navi_menu_sale"
                 android:layout_height="@dimen/navi_menu_sale"
-                android:id="@+id/navi_sales_iv" />
+                android:id="@+id/mrl1"
+                app:mrl_rippleOverlay="true"
+                app:mrl_rippleDimension="10dp"
+                >
+                <ImageView
+                    android:id="@+id/navi_sale_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/sales"
+                    />
+            </com.balysv.materialripple.MaterialRippleLayout>
             <TextView
                 android:layout_marginTop="10dp"
                 android:textColor="@color/white"
@@ -29,7 +40,7 @@
                 android:text="Sales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/navi_sales_iv"
+                android:layout_below="@+id/mrl1"
                 />
         </LinearLayout>
         <LinearLayout
@@ -40,11 +51,18 @@
             android:layout_toRightOf="@+id/ll1"
             android:gravity="center_horizontal"
             >
-            <ImageView
-                android:src="@mipmap/customers"
+            <com.balysv.materialripple.MaterialRippleLayout
+                app:mrl_rippleOverlay="true"
                 android:layout_width="@dimen/navi_menu_sale"
                 android:layout_height="@dimen/navi_menu_sale"
-                />
+                app:mrl_rippleDimension="10dp"
+                >
+                <ImageView
+                    android:id="@+id/navi_customer_iv"
+                    android:src="@mipmap/customers"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.balysv.materialripple.MaterialRippleLayout>
             <TextView
                 android:layout_marginTop="10dp"
                 android:textColor="@color/white"

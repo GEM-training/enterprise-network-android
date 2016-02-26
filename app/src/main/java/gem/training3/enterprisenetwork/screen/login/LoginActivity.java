@@ -50,10 +50,10 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @Override
-    public void onRequestError(int errorCode, String errorMessage) {
+    public void onRequestError(String errorMessage) {
         pbLogin.setVisibility(View.GONE);
         svLoginForm.setVisibility(View.VISIBLE);
-        DialogUtils.showErrorAlert(this,"2"+errorMessage);
+        DialogUtils.showErrorAlert(this,errorMessage);
     }
 
     @Override

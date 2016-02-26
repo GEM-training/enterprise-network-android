@@ -82,6 +82,7 @@
     <string name="assets">Assets</string>
     <string name="sample_address">62 Tran Thai Tong, Cau Giay</string>
     <string name="sample_phone">04888666</string>
-    <string name="sample_number">100</string>
+    <string name="sample_number">0</string>
     <string name="stores">stores</string>
+    <string name="product">products</string>
 </resources>

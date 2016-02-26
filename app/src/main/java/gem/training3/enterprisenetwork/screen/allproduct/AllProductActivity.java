@@ -52,7 +52,7 @@ public class AllProductActivity extends BaseActivityToolbar {
         product_list_rv.setAdapter(adapter);
 
         Intent i = getIntent();
-        int storeId = i.getIntExtra("storeId",1);
+        Integer storeId = i.getIntExtra("storeId",1);
         Call<Product[]> call = ServiceBuilder.getService().getProductByStore(Session.getCurrentUser().getToken(),storeId);
         call.enqueue(new Callback<Product[]>() {
             @Override

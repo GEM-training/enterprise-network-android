@@ -10,27 +10,32 @@
         android:layout_height="wrap_content"
         android:hint="@string/search"
         android:maxLines="1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:singleLine="true" />
 
     <TextView
-        android:id="@+id/products_total_number_tv"
+        android:id="@+id/store_total_number_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/stores_search_et"
+        android:textSize="20dp"
+        android:layout_marginLeft="5dp"
         android:text="@string/sample_number" />
 
     <TextView
-        android:id="@+id/products_total_tv"
+        android:id="@+id/tv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/stores_search_et"
         android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@id/products_total_number_tv"
+        android:layout_toRightOf="@id/store_total_number_tv"
+        android:textSize="20dp"
         android:text="@string/stores" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/product_list_rv"
+        android:id="@+id/store_list_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/products_total_number_tv"></android.support.v7.widget.RecyclerView>
+        android:layout_below="@id/store_total_number_tv"></android.support.v7.widget.RecyclerView>
 </RelativeLayout>

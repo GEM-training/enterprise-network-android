@@ -49,8 +49,7 @@ public class LoginPresenterImpl implements LoginPresenter {
     private BaseCallback mLoginCallback = new BaseCallback() {
         @Override
         public void onError(int errorCode, String errorMessage) {
-            Log.e("cxz",errorCode+"-"+errorMessage);
-            mView.onRequestError(errorCode, "1"+errorMessage);
+            mView.onRequestError(errorMessage);
         }
 
         @Override

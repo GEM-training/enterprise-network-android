@@ -3,10 +3,8 @@ package gem.training3.enterprisenetwork.screen.fragment.allstore;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-
-import com.google.gson.Gson;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -14,22 +12,18 @@ import butterknife.Bind;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.adapter.StoreAdapter;
 import gem.training3.enterprisenetwork.base.BaseFragment;
-import gem.training3.enterprisenetwork.base.BasePresenter;
-import gem.training3.enterprisenetwork.network.ServiceBuilder;
-import gem.training3.enterprisenetwork.network.Session;
-import gem.training3.enterprisenetwork.network.dto.ResponseStore;
 import gem.training3.enterprisenetwork.network.dto.Store;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by huylv on 25/02/2016.
  */
-public class AllStoreFragment extends BaseFragment {
+public class AllStoreFragment extends BaseFragment<AllStorePresenter> implements AllStoreView {
 
-    @Bind(R.id.product_list_rv)
-    RecyclerView stores_list_stores_rv;
+    @Bind(R.id.store_list_rv)
+    RecyclerView store_list_stores_rv;
+
+    @Bind(R.id.store_total_number_tv)
+    TextView store_total_number_tv;
 
     ArrayList<Store> allStoreList;
     StoreAdapter adapter;
@@ -40,32 +34,12 @@ public class AllStoreFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         allStoreList = new ArrayList<>();
-
-        Call<ResponseStore> call = ServiceBuilder.getService().getAllStore(Session.getCurrentUser().getToken());
-        call.enqueue(new Callback<ResponseStore>() {
-            @Override
-            public void onResponse(Call<ResponseStore> call, Response<ResponseStore> response) {
-                Gson gson = new Gson();
-                ResponseStore ss = (ResponseStore) response.body();
-                Store[] sss = ss.getContent();
-                for(Store s : sss){
-                    allStoreList.add(s);
-                }
-                adapter.notifyDataSetChanged();
-//                Log.e("cxz","ssss"+sss[1].getName());
-//                ResponseUserInfoDTO responseUserInfo = gson.fromJson(gson.toJson(responseDTO.getReturnObject()), ResponseUserInfoDTO.class);
-            }
-
-            @Override
-            public void onFailure(Call<ResponseStore> call, Throwable t) {
-                Log.e("cxz","xxxx"+t.getMessage());
-            }
-        });
-
         LinearLayoutManager llm =  new LinearLayoutManager(getActivity());
-        stores_list_stores_rv.setLayoutManager(llm);
+        store_list_stores_rv.setLayoutManager(llm);
         adapter = new StoreAdapter(allStoreList,getActivity());
-        stores_list_stores_rv.setAdapter(adapter);
+        store_list_stores_rv.setAdapter(adapter);
+
+        getPresenter().getAllStore();
     }
 
     @Override
@@ -74,17 +48,14 @@ public class AllStoreFragment extends BaseFragment {
     }
 
     @Override
-    public BasePresenter onCreatePresenter() {
-        return null;
+    public AllStorePresenter onCreatePresenter() {
+        return new AllStorePresenterImpl(this);
     }
 
     @Override
-    public void onRequestError(int errorCode, String errorMessage) {
-
-    }
-
-    @Override
-    public void onRequestSuccess() {
-
+    public void onGetAllStoreSuccess(ArrayList<Store> storeArrayList) {
+        this.allStoreList.addAll(storeArrayList);
+        adapter.notifyDataSetChanged();
+        store_total_number_tv.setText(String.valueOf(allStoreList.size()));
     }
 }

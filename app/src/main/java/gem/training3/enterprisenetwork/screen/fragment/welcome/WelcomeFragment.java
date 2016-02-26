@@ -26,15 +26,6 @@ public class WelcomeFragment extends BaseFragment<WelcomePresenter> implements W
         return new WelcomePresenterImpl(this);
     }
 
-    @Override
-    public void onRequestError(int errorCode, String errorMessage) {
-
-    }
-
-    @Override
-    public void onRequestSuccess() {
-
-    }
 
     @Override
     public void onGetCurrentUserSuccess(ResponseUserInfoDTO u) {

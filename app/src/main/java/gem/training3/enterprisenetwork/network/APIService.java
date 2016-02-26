@@ -12,11 +12,12 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by huylv on 22/02/2016.
  */
-public interface UserService {
+public interface APIService {
     @Headers("Content-Type:application/json")
     @POST("/login")
     Call<ResponseDTO> login(@Body UserInfoDTO user);
@@ -26,6 +27,9 @@ public interface UserService {
 
     @GET("/store")
     Call<ResponseStore> getAllStore(@Header(Constants.token) String access_token );
+
+    @GET("/store")
+    Call<ResponseStore> getStore(@Query("page") int page,@Query("size") int size);
 
     @GET("/store/{id}/product")
     Call<Product[]> getProductByStore(@Header(Constants.token) String access_token, @Path("id") int id);

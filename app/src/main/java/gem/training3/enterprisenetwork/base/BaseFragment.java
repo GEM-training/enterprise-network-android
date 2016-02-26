@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
+import gem.training3.enterprisenetwork.common.util.DialogUtils;
 
 /**
  * Created by Hoak57uet on 2/20/2016.
@@ -44,6 +45,11 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
         }
+    }
+
+    @Override
+    public void onRequestError(String errorMessage) {
+        DialogUtils.showErrorAlert(getActivity(),errorMessage);
     }
 
     @Override

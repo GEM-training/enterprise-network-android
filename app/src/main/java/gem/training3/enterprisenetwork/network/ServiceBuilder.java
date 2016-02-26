@@ -10,7 +10,7 @@ public class ServiceBuilder {
     private static final String BASE_URL = "http://172.16.10.66:8080";
 
     private static Retrofit sInstance;
-    private static UserService sService;
+    private static APIService sService;
 
     private static Retrofit getRetrofit() {
         if (sInstance == null) {
@@ -19,13 +19,12 @@ public class ServiceBuilder {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
-
         return sInstance;
     }
 
-    public static UserService getService() {
+    public static APIService getService() {
         if (sService == null) {
-            sService = getRetrofit().create(UserService.class);
+            sService = getRetrofit().create(APIService.class);
         }
 
         return sService;

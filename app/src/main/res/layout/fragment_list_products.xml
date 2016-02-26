@@ -33,7 +33,7 @@
         android:layout_below="@id/products_search_et"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/products_total_number_tv"
-        android:text="@string/stores" />
+        android:text="@string/product" />
 
     <android.support.v7.widget.RecyclerView
         android:visibility="gone"
