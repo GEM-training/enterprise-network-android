@@ -3,7 +3,9 @@
     android:id="@+id/store_layout_cv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_medium">
+    android:layout_margin="@dimen/margin_medium"
+    android:elevation="@dimen/cardview_default_elevation"
+    android:foreground="?selectableItemBackground">
 
     <RelativeLayout
         android:layout_width="match_parent"

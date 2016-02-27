@@ -11,9 +11,9 @@ import gem.training3.enterprisenetwork.common.util.VarUtils;
 import gem.training3.enterprisenetwork.network.ServiceBuilder;
 import gem.training3.enterprisenetwork.network.Session;
 import gem.training3.enterprisenetwork.network.callback.BaseCallback;
-import gem.training3.enterprisenetwork.network.dto.ResponseDTO;
-import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
-import gem.training3.enterprisenetwork.network.dto.UserInfoDTO;
+import gem.training3.enterprisenetwork.network.model.ResponseDTO;
+import gem.training3.enterprisenetwork.network.model.ResponseUserInfoDTO;
+import gem.training3.enterprisenetwork.network.model.UserInfoDTO;
 import retrofit2.Response;
 
 /**

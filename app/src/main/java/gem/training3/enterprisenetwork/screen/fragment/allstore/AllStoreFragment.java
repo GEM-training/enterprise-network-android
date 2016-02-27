@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import butterknife.Bind;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.adapter.StoreAdapter;
 import gem.training3.enterprisenetwork.base.BaseFragment;
-import gem.training3.enterprisenetwork.network.dto.Store;
+import gem.training3.enterprisenetwork.network.model.Store;
 
 /**
  * Created by huylv on 25/02/2016.
@@ -24,6 +25,9 @@ public class AllStoreFragment extends BaseFragment<AllStorePresenter> implements
 
     @Bind(R.id.store_total_number_tv)
     TextView store_total_number_tv;
+
+    @Bind(R.id.store_list_pb)
+    ProgressBar store_list_pb;
 
     private ArrayList<Store> allStoreList;
     private StoreAdapter adapter;
@@ -57,5 +61,8 @@ public class AllStoreFragment extends BaseFragment<AllStorePresenter> implements
         this.allStoreList.addAll(storeArrayList);
         adapter.notifyDataSetChanged();
         store_total_number_tv.setText(String.valueOf(allStoreList.size()));
+
+        store_list_pb.setVisibility(View.GONE);
+        store_list_stores_rv.setVisibility(View.VISIBLE);
     }
 }

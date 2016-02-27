@@ -1,6 +1,6 @@
 package gem.training3.enterprisenetwork.network.callback;
 
-import gem.training3.enterprisenetwork.network.dto.ResponseDTO;
+import gem.training3.enterprisenetwork.network.model.ResponseDTO;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

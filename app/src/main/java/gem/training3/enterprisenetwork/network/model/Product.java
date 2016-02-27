@@ -1,4 +1,4 @@
-package gem.training3.enterprisenetwork.network.dto;
+package gem.training3.enterprisenetwork.network.model;
 
 import java.util.Date;
 

@@ -1,10 +1,10 @@
 package gem.training3.enterprisenetwork.network;
 
 import gem.training3.enterprisenetwork.common.Constants;
-import gem.training3.enterprisenetwork.network.dto.Product;
-import gem.training3.enterprisenetwork.network.dto.ResponseDTO;
-import gem.training3.enterprisenetwork.network.dto.ResponseStore;
-import gem.training3.enterprisenetwork.network.dto.UserInfoDTO;
+import gem.training3.enterprisenetwork.network.model.ResponseDTO;
+import gem.training3.enterprisenetwork.network.model.ResponseProduct;
+import gem.training3.enterprisenetwork.network.model.ResponseStore;
+import gem.training3.enterprisenetwork.network.model.UserInfoDTO;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -26,11 +26,8 @@ public interface APIService {
     Call<ResponseDTO> logout(@Header(Constants.token) String access_token);
 
     @GET("/store")
-    Call<ResponseStore> getAllStore(@Header(Constants.token) String access_token );
-
-    @GET("/store")
-    Call<ResponseStore> getStore(@Query("page") int page,@Query("size") int size);
+    Call<ResponseStore> getStore(@Header(Constants.token) String access_token,@Query("page") int page,@Query("size") int size);
 
     @GET("/store/{id}/product")
-    Call<Product[]> getProductByStore(@Header(Constants.token) String access_token, @Path("id") int id);
+    Call<ResponseProduct> getProductByStore(@Header(Constants.token) String access_token, @Path("id") Long id,@Query("page") int page,@Query("size") int size);
 }

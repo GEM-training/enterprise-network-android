@@ -5,7 +5,7 @@ import android.widget.TextView;
 import butterknife.Bind;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.base.BaseFragment;
-import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
+import gem.training3.enterprisenetwork.network.model.ResponseUserInfoDTO;
 
 /**
  * Created by huylv on 24/02/2016.

@@ -7,6 +7,7 @@ package gem.training3.enterprisenetwork.common;
 public interface Constants {
     String USER_INFO = "UserInfo";
     String SPKEY_USERJSON="userJson";
+    public static int SPLASH_TIME_OUT = 1000;
 
     String token = "token";
 }

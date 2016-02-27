@@ -1,7 +1,7 @@
 package gem.training3.enterprisenetwork.network;
 
 
-import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
+import gem.training3.enterprisenetwork.network.model.ResponseUserInfoDTO;
 
 /**
  * Created by huylv on 19/02/2016.

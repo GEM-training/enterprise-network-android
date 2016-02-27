@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import gem.training3.enterprisenetwork.R;
-import gem.training3.enterprisenetwork.network.dto.Store;
+import gem.training3.enterprisenetwork.network.model.Store;
 import gem.training3.enterprisenetwork.screen.allproduct.AllProductActivity;
 
 /**

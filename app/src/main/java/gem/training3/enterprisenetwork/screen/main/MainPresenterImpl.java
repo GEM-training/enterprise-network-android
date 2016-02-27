@@ -6,7 +6,7 @@ import gem.training3.enterprisenetwork.base.log.Logger;
 import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.network.ServiceBuilder;
 import gem.training3.enterprisenetwork.network.Session;
-import gem.training3.enterprisenetwork.network.dto.ResponseDTO;
+import gem.training3.enterprisenetwork.network.model.ResponseDTO;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,11 +19,6 @@ public class MainPresenterImpl implements MainPresenter {
 
     public MainPresenterImpl(MainView view) {
         this.view = view;
-    }
-
-    @Override
-    public void getCurrentUser() {
-        view.onGetCurrentUserSuccess(Session.getCurrentUser());
     }
 
     @Override

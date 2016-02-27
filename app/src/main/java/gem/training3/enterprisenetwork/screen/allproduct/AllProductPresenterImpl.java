@@ -8,7 +8,8 @@ import java.util.Arrays;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
 import gem.training3.enterprisenetwork.network.ServiceBuilder;
 import gem.training3.enterprisenetwork.network.Session;
-import gem.training3.enterprisenetwork.network.dto.Product;
+import gem.training3.enterprisenetwork.network.model.Product;
+import gem.training3.enterprisenetwork.network.model.ResponseProduct;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,18 +22,19 @@ public class AllProductPresenterImpl implements AllProductPresenter {
     public AllProductPresenterImpl(AllProductView v){view=v;}
 
     @Override
-    public void getProductByStoreId(int storeId) {
-        Call<Product[]> call = ServiceBuilder.getService().getProductByStore(Session.getCurrentUser().getToken(),storeId);
-        call.enqueue(new Callback<Product[]>() {
+    public void getProductByStoreId(Long storeId) {
+        Call<ResponseProduct> call = ServiceBuilder.getService().getProductByStore(Session.getCurrentUser().getToken(),storeId,0,10);
+        call.enqueue(new Callback<ResponseProduct>() {
             @Override
-            public void onResponse(Call<Product[]> call, Response<Product[]> response) {
-                Product[] ps = response.body();
-                ArrayList<Product> productArrayList = new ArrayList<>(Arrays.asList(ps));
+            public void onResponse(Call<ResponseProduct> call, Response<ResponseProduct> response) {
+                ResponseProduct responseProduct = response.body();
+                Product[] products = responseProduct.getContent();
+                ArrayList<Product> productArrayList = new ArrayList<>(Arrays.asList(products));
                 view.onGetAllProductSuccess(productArrayList);
             }
 
             @Override
-            public void onFailure(Call<Product[]> call, Throwable t) {
+            public void onFailure(Call<ResponseProduct> call, Throwable t) {
                 DialogUtils.showErrorAlert((Activity)view,t.getMessage());
             }
         });

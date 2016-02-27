@@ -8,10 +8,10 @@
         android:id="@+id/stores_search_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/search"
-        android:maxLines="1"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:hint="@string/search"
+        android:maxLines="1"
         android:singleLine="true" />
 
     <TextView
@@ -19,9 +19,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/stores_search_et"
-        android:textSize="20dp"
         android:layout_marginLeft="5dp"
-        android:text="@string/sample_number" />
+        android:text="@string/sample_number"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/tv3"
@@ -30,14 +30,25 @@
         android:layout_below="@id/stores_search_et"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/store_total_number_tv"
-        android:textSize="20dp"
-        android:text="@string/stores" />
+        android:text="@string/stores"
+        android:textSize="20dp" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/store_list_rv"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/store_total_number_tv">
+        android:layout_below="@+id/store_total_number_tv">
 
-    </android.support.v7.widget.RecyclerView>
+        <ProgressBar
+            android:id="@+id/store_list_pb"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/store_list_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/store_total_number_tv">
+
+        </android.support.v7.widget.RecyclerView>
+    </FrameLayout>
 </RelativeLayout>

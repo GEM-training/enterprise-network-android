@@ -14,7 +14,7 @@ import java.io.StringReader;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.network.Session;
-import gem.training3.enterprisenetwork.network.dto.ResponseUserInfoDTO;
+import gem.training3.enterprisenetwork.network.model.ResponseUserInfoDTO;
 import gem.training3.enterprisenetwork.screen.main.MainActivity;
 import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
 
@@ -22,8 +22,6 @@ import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
  * Created by huylv on 17/02/2016.
  */
 public class SplashActivity extends Activity {
-    // Splash screen timer
-    private static int SPLASH_TIME_OUT = 1000;
     private boolean LOGGEDIN = false;
 
     @Override
@@ -56,6 +54,6 @@ public class SplashActivity extends Activity {
                 }
                 finish();
             }
-        }, SPLASH_TIME_OUT);
+        }, Constants.SPLASH_TIME_OUT);
     }
 }

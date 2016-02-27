@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 import gem.training3.enterprisenetwork.network.ServiceBuilder;
 import gem.training3.enterprisenetwork.network.Session;
-import gem.training3.enterprisenetwork.network.dto.ResponseStore;
-import gem.training3.enterprisenetwork.network.dto.Store;
+import gem.training3.enterprisenetwork.network.model.ResponseStore;
+import gem.training3.enterprisenetwork.network.model.Store;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,16 +21,13 @@ public class AllStorePresenterImpl implements AllStorePresenter {
 
     @Override
     public void getAllStore() {
-        Call<ResponseStore> call = ServiceBuilder.getService().getAllStore(Session.getCurrentUser().getToken());
+        Call<ResponseStore> call = ServiceBuilder.getService().getStore(Session.getCurrentUser().getToken(),0,10);
         call.enqueue(new Callback<ResponseStore>() {
             @Override
             public void onResponse(Call<ResponseStore> call, Response<ResponseStore> response) {
                 ResponseStore responseStore = response.body();
                 Store[] stores = responseStore.getContent();
                 ArrayList<Store> storeArrayList = new ArrayList<>(Arrays.asList(stores));
-//                for(Store s:stores){
-//                    storeArrayList.add(s);
-//                }
                 view.onGetAllStoreSuccess(storeArrayList);
             }
 

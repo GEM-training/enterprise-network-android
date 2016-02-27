@@ -31,5 +31,6 @@
     <dimen name="picture_height">100dp</dimen>
 
     <!--dimens ralated to item product-->
-
+    <dimen name="list_product_search_margin_left">5dp</dimen>
+    <dimen name="common_textSize">20dp</dimen>
 </resources>
