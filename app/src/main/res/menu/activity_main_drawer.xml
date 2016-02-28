@@ -5,23 +5,19 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Home" />
-        <item
-            android:id="@+id/nav_my_dealers"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="My Dealer" />
+            android:title="@string/nav_home" />
         <item
             android:id="@+id/nav_all_store"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="All stores" />
+            android:title="@string/nav_all_store" />
 
     </group>
-    <item android:title="Other">
+    <item android:title="@string/nav_other">
         <menu>
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Log out" />
+                android:title="@string/nav_log_out" />
         </menu>
     </item>
 

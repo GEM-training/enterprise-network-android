@@ -20,7 +20,7 @@
             android:label="@string/title_activity_main" />
         <activity
             android:name=".screen.login.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
         <activity android:name=".screen.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +29,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".screen.welcome.WelcomeActivity"/>
-        <activity android:name=".screen.menunavi.NaviActivity"
+        <activity
+            android:name=".screen.navigationmenu.NavigationActivity"
             android:theme="@style/AppTheme.Transparent"
             />
         <activity android:name=".screen.allproduct.AllProductActivity"/>

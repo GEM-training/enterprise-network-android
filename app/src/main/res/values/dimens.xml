@@ -18,9 +18,9 @@
 
     <dimen name="welcome_signup_bt">300dp</dimen>
 
-    <dimen name="navi_down_height">40dp</dimen>
-    <dimen name="navi_down_icon">32dp</dimen>
-    <dimen name="navi_menu_sale">90dp</dimen>
+    <dimen name="navigation_bar_height">40dp</dimen>
+    <dimen name="navigation_bar_icon_height">32dp</dimen>
+    <dimen name="navigation_menu_sale_width">90dp</dimen>
 
     <dimen name="dimen_5">5dp</dimen>
     <dimen name="dimen_10">10dp</dimen>
@@ -32,5 +32,5 @@
 
     <!--dimens ralated to item product-->
     <dimen name="list_product_search_margin_left">5dp</dimen>
-    <dimen name="common_textSize">20dp</dimen>
+    <dimen name="common_textSize">20sp</dimen>
 </resources>

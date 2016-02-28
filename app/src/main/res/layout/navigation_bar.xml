@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/navibar"
+    android:id="@+id/navigation_bar"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/navi_down_height"
+    android:layout_height="@dimen/navigation_bar_height"
     android:layout_alignParentBottom="true"
     android:background="@color/grey_300"
     android:padding="@dimen/padding_medium">
 
 
     <com.balysv.materialripple.MaterialRippleLayout
-        android:layout_width="@dimen/navi_down_icon"
-        android:layout_height="@dimen/navi_down_icon"
+        android:layout_width="@dimen/navigation_bar_icon_height"
+        android:layout_height="@dimen/navigation_bar_icon_height"
         android:layout_alignParentRight="true">
 
         <ImageView
-            android:id="@+id/navi_menu_bt"
+            android:id="@+id/navigation_menu_iv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@mipmap/button1" />
     </com.balysv.materialripple.MaterialRippleLayout>
 
     <com.balysv.materialripple.MaterialRippleLayout
-        android:layout_width="@dimen/navi_down_icon"
-        android:layout_height="@dimen/navi_down_icon"
+        android:layout_width="@dimen/navigation_bar_icon_height"
+        android:layout_height="@dimen/navigation_bar_icon_height"
         android:layout_alignParentLeft="true">
 
         <ImageView

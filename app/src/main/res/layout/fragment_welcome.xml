@@ -37,7 +37,6 @@
         android:id="@+id/welcome_guide_rl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/include"
         android:layout_below="@id/welcome_greeting_rl">
 
         <ImageView

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="@string/welcome_get_start"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
         android:gravity="center_horizontal"
         android:text="@string/welcome_app_name_1"
         android:textColor="#114773"
-        android:textSize="70dp"
+        android:textSize="70sp"
         android:textStyle="bold" />
 
     <TextView
@@ -30,7 +30,7 @@
         android:gravity="center_horizontal"
         android:text="@string/welcome_app_name_2"
         android:textColor="#114773"
-        android:textSize="70dp"
+        android:textSize="70sp"
         android:textStyle="bold" />
 
     <com.balysv.materialripple.MaterialRippleLayout
@@ -48,15 +48,15 @@
             android:padding="10dp"
             android:text="@string/welcome_signup_customer"
             android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
     </com.balysv.materialripple.MaterialRippleLayout>
 
     <com.balysv.materialripple.MaterialRippleLayout
         android:layout_width="@dimen/welcome_signup_bt"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:mrl_rippleColor="@color/blue_800"
         app:mrl_rippleOverlay="true"
-        android:layout_marginTop="10dp"
         >
 
         <Button
@@ -70,7 +70,7 @@
             android:padding="10dp"
             android:text="@string/welcome_setup"
             android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
     </com.balysv.materialripple.MaterialRippleLayout>
 
     <LinearLayout
@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcome_have_account"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/welcome_signin"
@@ -92,7 +92,7 @@
             android:layout_marginLeft="5dp"
             android:text="@string/welcome_signin"
             android:textColor="@color/green_200"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 

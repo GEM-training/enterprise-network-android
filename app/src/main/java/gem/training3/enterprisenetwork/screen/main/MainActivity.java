@@ -14,7 +14,7 @@ import gem.training3.enterprisenetwork.base.BaseActivityDrawer;
 import gem.training3.enterprisenetwork.common.util.VarUtils;
 import gem.training3.enterprisenetwork.screen.fragment.allstore.AllStoreFragment;
 import gem.training3.enterprisenetwork.screen.fragment.welcome.WelcomeFragment;
-import gem.training3.enterprisenetwork.screen.menunavi.NaviActivity;
+import gem.training3.enterprisenetwork.screen.navigationmenu.NavigationActivity;
 import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
 
 /**
@@ -72,9 +72,9 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
 
     }
 
-    @OnClick(R.id.navi_menu_bt)
-    void openNaviMenu(){
-        Intent i = new Intent(MainActivity.this, NaviActivity.class);
+    @OnClick(R.id.navigation_menu_iv)
+    void openNavigationMenu() {
+        Intent i = new Intent(MainActivity.this, NavigationActivity.class);
         startActivity(i);
     }
 

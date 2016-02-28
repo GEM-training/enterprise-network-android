@@ -21,7 +21,7 @@
         android:layout_below="@+id/stores_search_et"
         android:layout_marginLeft="5dp"
         android:text="@string/sample_number"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv3"
@@ -31,7 +31,7 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/store_total_number_tv"
         android:text="@string/stores"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -40,14 +40,13 @@
 
         <ProgressBar
             android:id="@+id/store_list_pb"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
         <android.support.v7.widget.RecyclerView
             android:id="@+id/store_list_rv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/store_total_number_tv">
+            android:layout_height="match_parent">
 
         </android.support.v7.widget.RecyclerView>
     </FrameLayout>

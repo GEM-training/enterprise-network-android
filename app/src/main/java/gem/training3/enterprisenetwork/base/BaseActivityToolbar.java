@@ -13,12 +13,11 @@ import gem.training3.enterprisenetwork.R;
  */
 public abstract class BaseActivityToolbar <T extends BasePresenter> extends BaseActivity<T> implements BaseView<T>{
 
-//    @Bind(R.id.tool_bar)
-    Toolbar toolBar;
-
     @Nullable
-    @Bind(R.id.navibar)
-    protected RelativeLayout rlNaviBar;
+    @Bind(R.id.navigation_bar)
+    protected RelativeLayout relativeLayout_navigation_bar;
+    //    @Bind(R.id.tool_bar)
+    Toolbar toolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

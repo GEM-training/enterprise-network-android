@@ -21,28 +21,6 @@ import retrofit2.Response;
  */
 public class LoginPresenterImpl implements LoginPresenter {
     private final LoginView mView;
-
-    public LoginPresenterImpl(LoginView view) {
-        mView = view;
-    }
-
-    @Override
-    public void doLogin(Activity context, String email, String password, String deviceId) {
-//        if (!StringUtils.validateEmail(email)) {
-//            mView.onEmailError();
-//            return;
-//        }
-
-        if (password.length() < 3) {
-            mView.onPasswordError();
-            return;
-        }
-
-        ServiceBuilder.getService()
-                .login(new UserInfoDTO(email, password, deviceId))
-                .enqueue(mLoginCallback);
-    }
-
     /**
      * Login request callback
      */
@@ -67,10 +45,31 @@ public class LoginPresenterImpl implements LoginPresenter {
             Activity context = (Activity) mView;
             //save to SP
             SharedPreferences sp = context.getSharedPreferences(Constants.USER_INFO, Activity.MODE_PRIVATE);
-            sp.edit().putString(Constants.SPKEY_USERJSON, json).apply();
-            Log.e("cxz",json);
+            sp.edit().putString(Constants.SHARE_PREFERENCE_KEY_USER_JSON, json).apply();
+            Log.e("cxz", json);
             mView.onLoginSuccess();
         }
 
     };
+
+    public LoginPresenterImpl(LoginView view) {
+        mView = view;
+    }
+
+    @Override
+    public void doLogin(Activity context, String email, String password, String deviceId) {
+//        if (!StringUtils.validateEmail(email)) {
+//            mView.onEmailError();
+//            return;
+//        }
+
+        if (password.length() < 3) {
+            mView.onPasswordError();
+            return;
+        }
+
+        ServiceBuilder.getService()
+                .login(new UserInfoDTO(email, password, deviceId))
+                .enqueue(mLoginCallback);
+    }
 }

@@ -1,4 +1,4 @@
-package gem.training3.enterprisenetwork.screen.menunavi;
+package gem.training3.enterprisenetwork.screen.navigationmenu;
 
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.base.BaseActivity;
@@ -7,7 +7,7 @@ import gem.training3.enterprisenetwork.base.BasePresenter;
 /**
  * Created by huylv on 24/02/2016.
  */
-public class NaviActivity extends BaseActivity {
+public class NavigationActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {

@@ -29,9 +29,8 @@
     </string>
 
     <string name="dialog_title_error">Error</string>
-    <string name="dialog_content_server_problem">Server đang tạm thời bị lỗi, bạn thử lại sau.</string>
-    <string name="dialog_title_common">Thông báo</string>
-    <string name="dialog_title_content_network_problem">Không có kết nối mạng</string>
+    <string name="dialog_content_server_problem">Server error!</string>
+    <string name="dialog_title_content_network_problem">No internet connection</string>
     <string name="click_back_again">Please click BACK again to exit</string>
 
     <string name="welcome_get_start">Let\'s get started with</string>
@@ -66,7 +65,7 @@
     <string name="email">Email:</string>
     <string name="phone">Phone:</string>
     <string name="country">Country:</string>
-    <string name="street">Stree:</string>
+    <string name="street">Street</string>
     <string name="city">City:</string>
     <string name="state">State:</string>
     <string name="zip">Zip:</string>
@@ -90,6 +89,14 @@
 
     <!--string related to login-->
 
-    <string name="customer">Customer</string>
+    <string name="navigation_customer">Customer</string>
     <string name="default_picture">Default picture</string>
+
+
+    <!-- navigation drawer-->
+    <string name="nav_home">Home</string>
+    <string name="nav_all_store">All stores</string>
+    <string name="nav_log_out">Log out</string>
+    <string name="navigation_sale_bt">Sales</string>
+    <string name="nav_other">Other</string>
 </resources>

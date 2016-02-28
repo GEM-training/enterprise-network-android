@@ -22,19 +22,20 @@ import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
  * Created by huylv on 17/02/2016.
  */
 public class SplashActivity extends Activity {
-    private boolean LOGGEDIN = false;
+    private boolean LOGGED_IN = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        //check login
+        //load share preferences
         SharedPreferences sp = getSharedPreferences(Constants.USER_INFO,MODE_PRIVATE);
-        LOGGEDIN = sp.contains(Constants.SPKEY_USERJSON);
-        if(LOGGEDIN){
+        LOGGED_IN = sp.contains(Constants.SHARE_PREFERENCE_KEY_USER_JSON);
+        if (LOGGED_IN) {
+            //cast share preference to user  object
             Gson gson = new Gson();
-            String s = sp.getString(Constants.SPKEY_USERJSON, "null");
+            String s = sp.getString(Constants.SHARE_PREFERENCE_KEY_USER_JSON, "null");
             JsonReader jsonReader = new JsonReader(new StringReader(s));
             jsonReader.setLenient(true);
             ResponseUserInfoDTO responseUserInfo = gson.fromJson(jsonReader, ResponseUserInfoDTO.class);
@@ -45,7 +46,7 @@ public class SplashActivity extends Activity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(LOGGEDIN){
+                if (LOGGED_IN) {
                     Intent i = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(i);
                 }else{
