@@ -16,7 +16,7 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
 
-    <dimen name="welcome_signup_bt">300dp</dimen>
+    <dimen name="welcome_signup_bt_width">300dp</dimen>
 
     <dimen name="navigation_bar_height">40dp</dimen>
     <dimen name="navigation_bar_icon_height">32dp</dimen>
@@ -33,4 +33,23 @@
     <!--dimens ralated to item product-->
     <dimen name="list_product_search_margin_left">5dp</dimen>
     <dimen name="common_textSize">20sp</dimen>
+    <dimen name="activity_login_padding">30dp</dimen>
+    <dimen name="activity_login_app_name_size">60sp</dimen>
+    <dimen name="activity_login_app_name_marginTop">10dp</dimen>
+    <dimen name="activity_login_app_name_marginBottom">30dp</dimen>
+    <dimen name="activity_login_signin_button_marginTop">50dp</dimen>
+    <dimen name="activity_login_signin_button_text_size">20sp</dimen>
+    <dimen name="activity_splash_textSize">70sp</dimen>
+    <dimen name="activity_welcome_appname_marginTop">10dp</dimen>
+    <dimen name="activity_welcome_appname_marginBottom">50dp</dimen>
+    <dimen name="activity_welcome_bt_textSize">18sp</dimen>
+    <dimen name="activity_welcome_setup_button_marginTop">10dp</dimen>
+    <dimen name="activity_welcome_already_marginTop">70dp</dimen>
+    <dimen name="activity_welcome_signin_marginLeft">5dp</dimen>
+    <dimen name="fragment_liststore_search_marginLeft">5dp</dimen>
+    <dimen name="fragment_liststore_search_marginRight" >5dp</dimen>
+    <dimen name="fragment_liststore_number_store_textSize">20sp</dimen>
+    <dimen name="fragment_liststore_number_store_marginLeft">5dp</dimen>
+    <dimen name="fragment_welcome_header_height">180dp</dimen>
+    <dimen name="nav_header_profile_picture_height">75dp</dimen>
 </resources>

@@ -1,10 +1,9 @@
 package gem.training3.enterprisenetwork.network;
 
 import gem.training3.enterprisenetwork.common.Constants;
-import gem.training3.enterprisenetwork.network.model.ResponseDTO;
 import gem.training3.enterprisenetwork.network.model.ResponseProduct;
 import gem.training3.enterprisenetwork.network.model.ResponseStore;
-import gem.training3.enterprisenetwork.network.model.UserInfoDTO;
+import gem.training3.enterprisenetwork.network.model.UserCredential;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -19,15 +18,26 @@ import retrofit2.http.Query;
  */
 public interface APIService {
     @Headers("Content-Type:application/json")
-    @POST("/login")
-    Call<ResponseDTO> login(@Body UserInfoDTO user);
+    @POST("authenticate/login")
+    Call<UserCredential> login(@Body UserCredential user);
 
-    @GET("/logoutuser")
-    Call<ResponseDTO> logout(@Header(Constants.token) String access_token);
+    @POST("authenticate/logout")
+    Call<Void> logout(@Header(Constants.token) String access_token,@Header(Constants.deviceId) String deviceId);
 
     @GET("/store")
-    Call<ResponseStore> getStore(@Header(Constants.token) String access_token,@Query("page") int page,@Query("size") int size);
+    Call<ResponseStore> getStore(@Header(Constants.token) String access_token,
+                                 @Header(Constants.deviceId) String deviceId,
+                                 @Query("page") int page,
+                                 @Query("size") int size,
+                                 @Query("sort") String sort
+    );
 
     @GET("/store/{id}/product")
-    Call<ResponseProduct> getProductByStore(@Header(Constants.token) String access_token, @Path("id") Long id,@Query("page") int page,@Query("size") int size);
+    Call<ResponseProduct> getProductByStore(@Header(Constants.token) String access_token,
+                                            @Header(Constants.deviceId) String deviceId,
+                                            @Path("id") Long storeId,
+                                            @Query("page") int page,
+                                            @Query("size") int size,
+                                            @Query("sort") String sort
+    );
 }

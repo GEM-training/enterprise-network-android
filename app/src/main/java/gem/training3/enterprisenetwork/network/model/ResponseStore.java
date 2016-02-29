@@ -10,7 +10,7 @@ public class ResponseStore  {
     boolean last;
     int size;
     int number;
-    Sort sort;
+    Sort[] sort;
     int numberOfElements;
     boolean first;
 
@@ -119,13 +119,6 @@ public class ResponseStore  {
         this.number = number;
     }
 
-    public Sort getSort() {
-        return sort;
-    }
-
-    public void setSort(Sort sort) {
-        this.sort = sort;
-    }
 
     public int getNumberOfElements() {
         return numberOfElements;
@@ -143,7 +136,15 @@ public class ResponseStore  {
         this.first = first;
     }
 
-    public ResponseStore(Store[] content, int totalElements, int totalPages, boolean last, int size, int number, Sort sort, int numberOfElements, boolean first) {
+    public Sort[] getSort() {
+        return sort;
+    }
+
+    public void setSort(Sort[] sort) {
+        this.sort = sort;
+    }
+
+    public ResponseStore(Store[] content, int totalElements, int totalPages, boolean last, int size, int number, Sort[] sort, int numberOfElements, boolean first) {
 
         this.content = content;
         this.totalElements = totalElements;

@@ -1,11 +1,13 @@
 package gem.training3.enterprisenetwork.screen.fragment.allstore;
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.marshalchen.ultimaterecyclerview.UltimateRecyclerView;
 
 import java.util.ArrayList;
 
@@ -20,8 +22,8 @@ import gem.training3.enterprisenetwork.network.model.Store;
  */
 public class AllStoreFragment extends BaseFragment<AllStorePresenter> implements AllStoreView {
 
-    @Bind(R.id.store_list_rv)
-    RecyclerView store_list_stores_rv;
+    @Bind(R.id.store_list_urv)
+    UltimateRecyclerView store_list_stores_urv;
 
     @Bind(R.id.store_total_number_tv)
     TextView store_total_number_tv;
@@ -39,9 +41,16 @@ public class AllStoreFragment extends BaseFragment<AllStorePresenter> implements
 
         allStoreList = new ArrayList<>();
         LinearLayoutManager llm =  new LinearLayoutManager(getActivity());
-        store_list_stores_rv.setLayoutManager(llm);
+        store_list_stores_urv.setLayoutManager(llm);
         adapter = new StoreAdapter(allStoreList,getActivity());
-        store_list_stores_rv.setAdapter(adapter);
+        store_list_stores_urv.setAdapter(adapter);
+
+        store_list_stores_urv.setDefaultOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getPresenter().getAllStore();
+            }
+        });
 
         getPresenter().getAllStore();
     }
@@ -58,11 +67,12 @@ public class AllStoreFragment extends BaseFragment<AllStorePresenter> implements
 
     @Override
     public void onGetAllStoreSuccess(ArrayList<Store> storeArrayList) {
+        this.allStoreList.clear();
         this.allStoreList.addAll(storeArrayList);
         adapter.notifyDataSetChanged();
         store_total_number_tv.setText(String.valueOf(allStoreList.size()));
 
         store_list_pb.setVisibility(View.GONE);
-        store_list_stores_rv.setVisibility(View.VISIBLE);
+        store_list_stores_urv.setVisibility(View.VISIBLE);
     }
 }

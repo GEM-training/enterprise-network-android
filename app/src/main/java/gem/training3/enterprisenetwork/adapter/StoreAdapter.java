@@ -9,17 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.marshalchen.ultimaterecyclerview.UltimateRecyclerviewViewHolder;
+import com.marshalchen.ultimaterecyclerview.UltimateViewAdapter;
+
 import java.util.ArrayList;
 
 import gem.training3.enterprisenetwork.R;
+import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.network.model.Store;
 import gem.training3.enterprisenetwork.screen.allproduct.AllProductActivity;
 
 /**
  * Created by huylv on 25/02/2016.
  */
-public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHolder> {
-
+public class StoreAdapter extends UltimateViewAdapter<StoreAdapter.StoreViewHolder> {
     private final ArrayList<Store> storeArrayList;
     private final Context context;
 
@@ -29,32 +32,53 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
     }
 
     @Override
-    public StoreViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_store,parent,false);
-        return new StoreViewHolder(v);
+    public StoreViewHolder getViewHolder(View view) {
+        return new StoreViewHolder(view);
+    }
+
+    @Override
+    public StoreViewHolder onCreateViewHolder(ViewGroup parent) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_store, parent, false);
+        return new StoreViewHolder(view);
+    }
+
+    @Override
+    public int getAdapterItemCount() {
+        return storeArrayList.size();
+    }
+
+    @Override
+    public long generateHeaderId(int position) {
+        return 0;
     }
 
     @Override
     public void onBindViewHolder(StoreViewHolder holder, final int position) {
         final Store item = storeArrayList.get(position);
-        holder.store_name_tv.setText(storeArrayList.get(position).getName());
+        holder.store_name_tv.setText(item.getName());
         holder.store_address_tv.setText(item.getAddress());
         holder.store_layout_cv.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent i = new Intent(context, AllProductActivity.class);
-                i.putExtra("storeId",item.getId());
+                i.putExtra(Constants.intent_storeId,item.getId());
                 context.startActivity(i);
             }
         });
     }
 
     @Override
-    public int getItemCount() {
-        return storeArrayList.size();
+    public RecyclerView.ViewHolder onCreateHeaderViewHolder(ViewGroup parent) {
+        return null;
     }
 
-    class StoreViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int position) {
+    }
+
+
+    class StoreViewHolder extends UltimateRecyclerviewViewHolder {
         final TextView store_name_tv;
         final TextView store_address_tv;
         final CardView store_layout_cv;
@@ -63,8 +87,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
             store_layout_cv = (CardView)v.findViewById(R.id.store_layout_cv);
             store_name_tv = (TextView)v.findViewById(R.id.store_name_tv);
             store_address_tv = (TextView)v.findViewById(R.id.store_description_tv);
-
         }
-
     }
 }

@@ -5,7 +5,7 @@ import android.widget.TextView;
 import butterknife.Bind;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.base.BaseFragment;
-import gem.training3.enterprisenetwork.network.model.ResponseUserInfoDTO;
+import gem.training3.enterprisenetwork.network.model.UserCredential;
 
 /**
  * Created by huylv on 24/02/2016.
@@ -28,7 +28,7 @@ public class WelcomeFragment extends BaseFragment<WelcomePresenter> implements W
 
 
     @Override
-    public void onGetCurrentUserSuccess(ResponseUserInfoDTO u) {
+    public void onGetCurrentUserSuccess(UserCredential u) {
         welcome_email_tv.setText(u.getUsername());
     }
 

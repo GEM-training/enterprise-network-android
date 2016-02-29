@@ -10,7 +10,7 @@ public class ResponseProduct {
     boolean last;
     int size;
     int number;
-    Sort sort;
+    Sort[] sort;
     int numberOfElements;
     boolean first;
 
@@ -62,12 +62,25 @@ public class ResponseProduct {
         this.number = number;
     }
 
-    public Sort getSort() {
+    public Sort[] getSort() {
         return sort;
     }
 
-    public void setSort(Sort sort) {
+    public void setSort(Sort[] sort) {
         this.sort = sort;
+    }
+
+    public ResponseProduct(Product[] content, int totalElements, int totalPages, boolean last, int size, int number, Sort[] sort, int numberOfElements, boolean first) {
+
+        this.content = content;
+        this.totalElements = totalElements;
+        this.totalPages = totalPages;
+        this.last = last;
+        this.size = size;
+        this.number = number;
+        this.sort = sort;
+        this.numberOfElements = numberOfElements;
+        this.first = first;
     }
 
     public int getNumberOfElements() {

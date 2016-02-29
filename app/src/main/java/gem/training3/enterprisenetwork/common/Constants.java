@@ -10,4 +10,7 @@ public interface Constants {
     int SPLASH_TIME_OUT = 1000;
 
     String token = "token";
+    String deviceId = "deviceId";
+    String intent_storeId = "storeId";
+    String columnNameAsc ="name,asc";
 }

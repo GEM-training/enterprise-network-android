@@ -1,15 +1,15 @@
 package gem.training3.enterprisenetwork.network;
 
 
-import gem.training3.enterprisenetwork.network.model.ResponseUserInfoDTO;
+import gem.training3.enterprisenetwork.network.model.UserCredential;
 
 /**
  * Created by huylv on 19/02/2016.
  */
 public class Session {
-    private static ResponseUserInfoDTO user;
+    private static UserCredential user;
 
-    public static void setUser(ResponseUserInfoDTO user) {
+    public static void setUser(UserCredential user) {
         Session.user=user;
     }
 
@@ -19,7 +19,7 @@ public class Session {
         }
     }
 
-    public static ResponseUserInfoDTO getCurrentUser(){
+    public static UserCredential getCurrentUser(){
         return user;
     }
 }

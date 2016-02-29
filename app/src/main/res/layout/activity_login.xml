@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="30dp"
+    android:padding="@dimen/activity_login_padding"
     tools:context="gem.training3.enterprisenetwork.screen.login.LoginActivity">
 
     <!-- Login progress -->
@@ -25,22 +25,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/activity_login_app_name_marginTop"
                 android:gravity="center_horizontal"
                 android:text="@string/welcome_app_name_1"
-                android:textColor="#114773"
-                android:textSize="60sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/activity_login_app_name_size"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="@dimen/activity_login_app_name_marginBottom"
                 android:gravity="center_horizontal"
                 android:text="@string/welcome_app_name_2"
-                android:textColor="#114773"
-                android:textSize="60sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/activity_login_app_name_size"
                 android:textStyle="bold" />
 
             <android.support.design.widget.TextInputLayout
@@ -77,23 +77,23 @@
             </android.support.design.widget.TextInputLayout>
 
             <com.balysv.materialripple.MaterialRippleLayout
-                android:layout_width="@dimen/welcome_signup_bt"
+                android:layout_width="@dimen/welcome_signup_bt_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="@dimen/activity_login_signin_button_marginTop"
                 app:mrl_rippleColor="@color/blue_800"
                 app:mrl_rippleOverlay="true">
 
                 <Button
                     android:id="@+id/login_login_bt"
-                    android:layout_width="@dimen/welcome_signup_bt"
+                    android:layout_width="@dimen/welcome_signup_bt_width"
                     android:layout_height="wrap_content"
                     android:background="@drawable/roundbutton"
 
                     android:padding="10dp"
                     android:text="@string/action_sign_in_short"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/activity_login_signin_button_text_size" />
             </com.balysv.materialripple.MaterialRippleLayout>
         </LinearLayout>
     </ScrollView>

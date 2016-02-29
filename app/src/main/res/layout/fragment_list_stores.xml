@@ -8,8 +8,8 @@
         android:id="@+id/stores_search_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="@dimen/fragment_liststore_search_marginLeft"
+        android:layout_marginRight="@dimen/fragment_liststore_search_marginRight"
         android:hint="@string/search"
         android:maxLines="1"
         android:singleLine="true" />
@@ -19,19 +19,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/stores_search_et"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="@dimen/fragment_liststore_number_store_marginLeft"
         android:text="@string/sample_number"
-        android:textSize="20sp" />
+        android:textSize="@dimen/fragment_liststore_number_store_textSize" />
 
     <TextView
         android:id="@+id/tv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/stores_search_et"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="@dimen/fragment_liststore_number_store_marginLeft"
         android:layout_toRightOf="@id/store_total_number_tv"
         android:text="@string/stores"
-        android:textSize="20sp" />
+        android:textSize="@dimen/fragment_liststore_number_store_textSize" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -43,11 +43,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/store_list_rv"
+        <com.marshalchen.ultimaterecyclerview.UltimateRecyclerView
+            android:id="@+id/store_list_urv"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        </android.support.v7.widget.RecyclerView>
+        </com.marshalchen.ultimaterecyclerview.UltimateRecyclerView>
     </FrameLayout>
 </RelativeLayout>

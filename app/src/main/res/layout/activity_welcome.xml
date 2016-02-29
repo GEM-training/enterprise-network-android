@@ -16,25 +16,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/activity_welcome_appname_marginTop"
         android:gravity="center_horizontal"
         android:text="@string/welcome_app_name_1"
-        android:textColor="#114773"
-        android:textSize="70sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/activity_login_app_name_size"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="@dimen/activity_welcome_appname_marginBottom"
         android:gravity="center_horizontal"
         android:text="@string/welcome_app_name_2"
-        android:textColor="#114773"
-        android:textSize="70sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/activity_login_app_name_size"
         android:textStyle="bold" />
 
     <com.balysv.materialripple.MaterialRippleLayout
-        android:layout_width="@dimen/welcome_signup_bt"
+        android:layout_width="@dimen/welcome_signup_bt_width"
         android:layout_height="wrap_content"
         app:mrl_rippleColor="@color/blue_800"
         app:mrl_rippleOverlay="true"
@@ -42,57 +42,52 @@
 
         <Button
             android:id="@+id/welcome_signup_customer"
-            android:layout_width="@dimen/welcome_signup_bt"
+            android:layout_width="@dimen/welcome_signup_bt_width"
             android:layout_height="wrap_content"
             android:background="@drawable/roundbutton"
-            android:padding="10dp"
             android:text="@string/welcome_signup_customer"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="@dimen/activity_welcome_bt_textSize" />
     </com.balysv.materialripple.MaterialRippleLayout>
 
     <com.balysv.materialripple.MaterialRippleLayout
-        android:layout_width="@dimen/welcome_signup_bt"
+        android:layout_width="@dimen/welcome_signup_bt_width"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/activity_welcome_setup_button_marginTop"
         app:mrl_rippleColor="@color/blue_800"
         app:mrl_rippleOverlay="true"
         >
 
         <Button
             android:id="@+id/welcome_setup_company"
-            android:layout_width="@dimen/welcome_signup_bt"
+            android:layout_width="@dimen/welcome_signup_bt_width"
             android:layout_height="wrap_content"
-
-
             android:background="@drawable/roundbutton"
-
-            android:padding="10dp"
             android:text="@string/welcome_setup"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="@dimen/activity_welcome_bt_textSize" />
     </com.balysv.materialripple.MaterialRippleLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="@dimen/activity_welcome_already_marginTop"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcome_have_account"
-            android:textSize="18sp" />
+            android:textSize="@dimen/activity_welcome_bt_textSize" />
 
         <TextView
             android:id="@+id/welcome_signin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="@dimen/activity_welcome_signin_marginLeft"
             android:text="@string/welcome_signin"
             android:textColor="@color/green_200"
-            android:textSize="20sp"
+            android:textSize="@dimen/activity_welcome_bt_textSize"
             android:textStyle="bold" />
     </LinearLayout>
 

@@ -14,7 +14,7 @@ import java.io.StringReader;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.network.Session;
-import gem.training3.enterprisenetwork.network.model.ResponseUserInfoDTO;
+import gem.training3.enterprisenetwork.network.model.UserCredential;
 import gem.training3.enterprisenetwork.screen.main.MainActivity;
 import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
 
@@ -38,9 +38,9 @@ public class SplashActivity extends Activity {
             String s = sp.getString(Constants.SHARE_PREFERENCE_KEY_USER_JSON, "null");
             JsonReader jsonReader = new JsonReader(new StringReader(s));
             jsonReader.setLenient(true);
-            ResponseUserInfoDTO responseUserInfo = gson.fromJson(jsonReader, ResponseUserInfoDTO.class);
+            UserCredential user = gson.fromJson(jsonReader, UserCredential.class);
 
-            Session.setUser(responseUserInfo);
+            Session.setUser(user);
         }
 
         new Handler().postDelayed(new Runnable() {

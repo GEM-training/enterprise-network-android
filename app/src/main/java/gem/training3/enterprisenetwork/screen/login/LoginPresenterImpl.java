@@ -2,7 +2,6 @@ package gem.training3.enterprisenetwork.screen.login;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -10,10 +9,9 @@ import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.common.util.VarUtils;
 import gem.training3.enterprisenetwork.network.ServiceBuilder;
 import gem.training3.enterprisenetwork.network.Session;
-import gem.training3.enterprisenetwork.network.callback.BaseCallback;
-import gem.training3.enterprisenetwork.network.model.ResponseDTO;
-import gem.training3.enterprisenetwork.network.model.ResponseUserInfoDTO;
-import gem.training3.enterprisenetwork.network.model.UserInfoDTO;
+import gem.training3.enterprisenetwork.network.model.UserCredential;
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
@@ -21,36 +19,6 @@ import retrofit2.Response;
  */
 public class LoginPresenterImpl implements LoginPresenter {
     private final LoginView mView;
-    /**
-     * Login request callback
-     */
-    private final BaseCallback mLoginCallback = new BaseCallback() {
-        @Override
-        public void onError(int errorCode, String errorMessage) {
-            mView.onRequestError(errorMessage);
-        }
-
-        @Override
-        public void onResponse(Response<ResponseDTO> response) {
-
-            VarUtils.LOGGED_IN = true;
-            //put user info to intent
-
-            Gson gson = new Gson();
-            ResponseDTO responseDTO = response.body();
-            ResponseUserInfoDTO responseUserInfo = gson.fromJson(gson.toJson(responseDTO.getReturnObject()), ResponseUserInfoDTO.class);
-            Session.setUser(responseUserInfo);
-
-            String json = gson.toJson(responseUserInfo);
-            Activity context = (Activity) mView;
-            //save to SP
-            SharedPreferences sp = context.getSharedPreferences(Constants.USER_INFO, Activity.MODE_PRIVATE);
-            sp.edit().putString(Constants.SHARE_PREFERENCE_KEY_USER_JSON, json).apply();
-            Log.e("cxz", json);
-            mView.onLoginSuccess();
-        }
-
-    };
 
     public LoginPresenterImpl(LoginView view) {
         mView = view;
@@ -69,7 +37,29 @@ public class LoginPresenterImpl implements LoginPresenter {
         }
 
         ServiceBuilder.getService()
-                .login(new UserInfoDTO(email, password, deviceId))
-                .enqueue(mLoginCallback);
+                .login(new UserCredential(email, password,null, deviceId))
+                .enqueue(new Callback<UserCredential>() {
+                    @Override
+                    public void onResponse(Call<UserCredential> call, Response<UserCredential> response) {
+                        VarUtils.LOGGED_IN = true;
+
+                        Gson gson = new Gson();
+                        UserCredential user = response.body();
+
+                        Session.setUser(user);
+
+                        String json = gson.toJson(user);
+                        Activity context = (Activity) mView;
+                        //save to SP
+                        SharedPreferences sp = context.getSharedPreferences(Constants.USER_INFO, Activity.MODE_PRIVATE);
+                        sp.edit().putString(Constants.SHARE_PREFERENCE_KEY_USER_JSON, json).apply();
+                        mView.onLoginSuccess();
+                    }
+
+                    @Override
+                    public void onFailure(Call<UserCredential> call, Throwable t) {
+                        mView.onRequestError(t.getMessage());
+                    }
+                });
     }
 }

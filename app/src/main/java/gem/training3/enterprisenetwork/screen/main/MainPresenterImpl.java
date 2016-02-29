@@ -6,7 +6,6 @@ import gem.training3.enterprisenetwork.base.log.Logger;
 import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.network.ServiceBuilder;
 import gem.training3.enterprisenetwork.network.Session;
-import gem.training3.enterprisenetwork.network.model.ResponseDTO;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,28 +22,25 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void doLogout(final Context c) {
-        Call<ResponseDTO> call = ServiceBuilder.getService().logout(Session.getCurrentUser().getToken());
-        call.enqueue(new Callback<ResponseDTO>() {
+        Call<Void> call = ServiceBuilder.getService().logout(Session.getCurrentUser().getToken(),Session.getCurrentUser().getDeviceId());
+        call.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<ResponseDTO> call, Response<ResponseDTO> response) {
+            public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccess()) {
-
                     Session.removeUser();
                     c.getSharedPreferences(Constants.USER_INFO, Context.MODE_PRIVATE).edit().clear().commit();
-
                     view.onLogoutSuccess();
                 }
                 else {
-                    Logger.d("Network not connect when logout");
+                    Logger.e("Network not connect when logout1");
                     view.onLogoutSuccess();
                 }
-
             }
 
             @Override
-            public void onFailure(Call<ResponseDTO> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 view.onLogoutSuccess();
-                Logger.d("Network not connect when logout");
+                Logger.e("Network not connect when logout2");
             }
         });
     }

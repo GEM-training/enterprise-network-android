@@ -5,6 +5,7 @@ import android.app.Activity;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
 import gem.training3.enterprisenetwork.network.ServiceBuilder;
 import gem.training3.enterprisenetwork.network.Session;
@@ -18,12 +19,12 @@ import retrofit2.Response;
  * Created by huylv on 26-Feb-16.
  */
 public class AllProductPresenterImpl implements AllProductPresenter {
-    private AllProductView view;
+    final private AllProductView view;
     public AllProductPresenterImpl(AllProductView v){view=v;}
 
     @Override
     public void getProductByStoreId(Long storeId) {
-        Call<ResponseProduct> call = ServiceBuilder.getService().getProductByStore(Session.getCurrentUser().getToken(),storeId,0,10);
+        Call<ResponseProduct> call = ServiceBuilder.getService().getProductByStore(Session.getCurrentUser().getToken(),Session.getCurrentUser().getDeviceId(),storeId,0,10, Constants.columnNameAsc);
         call.enqueue(new Callback<ResponseProduct>() {
             @Override
             public void onResponse(Call<ResponseProduct> call, Response<ResponseProduct> response) {
