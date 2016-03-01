@@ -6,11 +6,15 @@ import android.os.Handler;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.Bind;
 import butterknife.OnClick;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.base.BaseActivityDrawer;
+import gem.training3.enterprisenetwork.base.log.EventLogger;
+import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.common.util.VarUtils;
 import gem.training3.enterprisenetwork.screen.fragment.allstore.AllStoreFragment;
 import gem.training3.enterprisenetwork.screen.fragment.welcome.WelcomeFragment;
@@ -25,16 +29,19 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
     private WelcomeFragment welcomeFragment;
     private AllStoreFragment allStoreFragment;
 
+    @Bind(R.id.nav_header_username)
+    TextView nav_header_username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        EventLogger.info("Create MainActivity");
         welcomeFragment = new WelcomeFragment();
         allStoreFragment = new AllStoreFragment();
         getFragmentManager().beginTransaction().replace(R.id.main_fl,welcomeFragment).addToBackStack(null).commit();
-
         if(getSupportActionBar()!=null) getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+//        nav_header_username.setText(Session.getCurrentUser().getUsername());
     }
 
     @Override
@@ -54,6 +61,7 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
             drawer.closeDrawer(GravityCompat.START);
         } else {
             if (VarUtils.DOUBLE_BACK) {
+                EventLogger.info("Exit application from MainActivity");
                 finish();
                 return;
             }
@@ -67,7 +75,7 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
                 public void run() {
                     VarUtils.DOUBLE_BACK = false;
                 }
-            }, 2000);
+            }, Constants.BACK_TIMEOUT);
         }
 
     }
@@ -104,6 +112,7 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
 
     @Override
     public void onLogoutSuccess() {
+        EventLogger.info("Logout successful");
         Intent i = new Intent(MainActivity.this, WelcomeActivity.class);
         startActivity(i);
         finish();

@@ -3,6 +3,8 @@ package gem.training3.enterprisenetwork.base;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import butterknife.ButterKnife;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
@@ -41,17 +43,19 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     }
 
     @Override
-    public void showProgress() {
-        if (mProgressDialog != null && !mProgressDialog.isShowing()) {
-            mProgressDialog.show();
+    public void showProgress(ProgressBar pb,View content) {
+        if(pb.getVisibility() == View.GONE && content.getVisibility() == View.VISIBLE ){
+            pb.setVisibility(View.VISIBLE);
+            content.setVisibility(View.GONE);
         }
     }
 
     @Override
-    public void hideProgress() {
-//        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-//            mProgressDialog.dismiss();
-//        }
+    public void hideProgress(ProgressBar pb, View content) {
+        if(pb.getVisibility() == View.VISIBLE && content.getVisibility() == View.GONE ){
+            pb.setVisibility(View.GONE);
+            content.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

@@ -10,4 +10,5 @@ import gem.training3.enterprisenetwork.network.model.Product;
  */
 interface AllProductView extends BaseView<AllProductPresenter> {
     void onGetAllProductSuccess(ArrayList<Product> productArrayList);
+    void onLoadMoreSuccess(ArrayList<Product> moreProduct);
 }

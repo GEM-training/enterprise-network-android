@@ -15,21 +15,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
+        android:layout_marginLeft="@dimen/list_product_search_margin_left"
         android:hint="@string/search"
         android:maxLines="1"
-        android:singleLine="true"
-        android:layout_marginLeft="@dimen/list_product_search_margin_left"
-        />
+        android:singleLine="true" />
 
     <TextView
-        android:layout_marginLeft="@dimen/list_product_search_margin_left"
         android:id="@+id/products_total_number_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/products_search_et"
+        android:layout_marginLeft="@dimen/list_product_search_margin_left"
         android:text="@string/sample_number"
-        android:textSize="@dimen/common_textSize"
-        />
+        android:textSize="@dimen/common_textSize" />
 
     <TextView
         android:id="@+id/products_total_tv"
@@ -39,31 +37,33 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/products_total_number_tv"
         android:text="@string/product"
-        android:textSize="@dimen/common_textSize"/>
-
+        android:textSize="@dimen/common_textSize" />
 
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/products_total_number_tv"
-        android:layout_above="@+id/include2">
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/product_list_rv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-        </android.support.v7.widget.RecyclerView>
+        android:layout_above="@+id/include2"
+        android:layout_below="@+id/products_total_number_tv">
         <ProgressBar
-            android:layout_gravity="center"
             android:id="@+id/product_list_pb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:layout_gravity="center" />
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/product_list_srl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/product_list_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+        </android.support.v4.widget.SwipeRefreshLayout>
     </FrameLayout>
 
 
-    <include layout="@layout/navigation_bar"
-        android:id="@+id/include2" />
+    <include
+        android:id="@+id/include2"
+        layout="@layout/navigation_bar" />
 </RelativeLayout>

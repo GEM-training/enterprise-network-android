@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import butterknife.ButterKnife;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
@@ -34,16 +35,18 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     }
 
     @Override
-    public void showProgress() {
-        if (mProgressDialog != null && !mProgressDialog.isShowing()) {
-            mProgressDialog.show();
+    public void showProgress(ProgressBar pb, View content) {
+        if(pb.getVisibility() == View.GONE && content.getVisibility() == View.VISIBLE ){
+            pb.setVisibility(View.VISIBLE);
+            content.setVisibility(View.GONE);
         }
     }
 
     @Override
-    public void hideProgress() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
+    public void hideProgress(ProgressBar pb, View content) {
+        if(pb.getVisibility() == View.VISIBLE && content.getVisibility() == View.GONE ){
+            pb.setVisibility(View.GONE);
+            content.setVisibility(View.VISIBLE);
         }
     }
 

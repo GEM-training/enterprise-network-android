@@ -3,9 +3,11 @@ package gem.training3.enterprisenetwork.base.log;
 import android.os.Environment;
 import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Date;
 
@@ -13,8 +15,8 @@ import java.util.Date;
  * Created by huylv on 29-Feb-16.
  */
 public class EventLogger {
-    public static final String APP_ID = "enterprisenetwork";
-    public static String logDir = "/androidapp";
+    public static final String APP_ID = "-EN-";
+    public static String logDir = "/enterprise-network";
     public static String logFileName = "/log.txt";
     public static boolean writeLogsToFile = true;
     public static final int LOG_LEVEL_VERBOSE = 4;
@@ -28,7 +30,7 @@ public class EventLogger {
         if (logLevel > CURRENT_LOG_LEVEL) {
             return;
         } else {
-            Log.v(APP_ID, message);
+            Log.i(APP_ID, message);
             if (writeLogsToFile) {
                 writeToFile(message);
             }
@@ -37,9 +39,19 @@ public class EventLogger {
 
     private static void writeToFile(String message) {
         try {
+
+                Process process = Runtime.getRuntime().exec("logcat -d");
+                BufferedReader bufferedReader = new BufferedReader(
+                        new InputStreamReader(process.getInputStream()));
+
+                StringBuilder log=new StringBuilder();
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    log.append(line);
+                }
+
             File sdCard = Environment.getExternalStorageDirectory();
             File dir = new File(sdCard.getAbsolutePath() + logDir);
-            Log.e("cxz",dir+"S");
             dir.mkdirs();
             File file = new File(dir, logFileName);
             PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(file, true), 8 * 1024));

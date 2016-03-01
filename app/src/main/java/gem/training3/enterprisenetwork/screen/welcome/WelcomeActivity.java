@@ -6,6 +6,7 @@ import butterknife.OnClick;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.base.BaseActivity;
 import gem.training3.enterprisenetwork.base.BasePresenter;
+import gem.training3.enterprisenetwork.base.log.EventLogger;
 import gem.training3.enterprisenetwork.screen.login.LoginActivity;
 
 /**
@@ -26,7 +27,14 @@ public class WelcomeActivity extends BaseActivity {
 
     @OnClick(R.id.welcome_signin)
     void startSignInActivity(){
+        EventLogger.info("Start sign in activity");
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        EventLogger.info("Exit application");
+        super.onBackPressed();
     }
 }

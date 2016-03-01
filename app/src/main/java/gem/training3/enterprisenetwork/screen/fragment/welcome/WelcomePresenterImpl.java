@@ -12,7 +12,6 @@ public class WelcomePresenterImpl implements WelcomePresenter {
 
     @Override
     public void getCurrentUser() {
-
         mView.onGetCurrentUserSuccess(Session.getCurrentUser());
     }
 }

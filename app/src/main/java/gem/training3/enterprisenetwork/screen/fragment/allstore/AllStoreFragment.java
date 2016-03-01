@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -16,6 +15,7 @@ import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.adapter.StoreAdapter;
 import gem.training3.enterprisenetwork.adapter.listener.OnLoadMoreListener;
 import gem.training3.enterprisenetwork.base.BaseFragment;
+import gem.training3.enterprisenetwork.base.log.EventLogger;
 import gem.training3.enterprisenetwork.network.model.Store;
 
 /**
@@ -42,7 +42,7 @@ public class AllStoreFragment extends BaseFragment<AllStorePresenter> implements
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        EventLogger.info("Allstorefragment view created");
         allStoreList = new ArrayList<>();
         currentPage=0;
         LinearLayoutManager llm =  new LinearLayoutManager(getActivity());
@@ -65,33 +65,11 @@ public class AllStoreFragment extends BaseFragment<AllStorePresenter> implements
                 adapter.notifyItemInserted(allStoreList.size() - 1);
 
                 currentPage+=1;
-                Log.e("cxz",":ssss:"+currentPage);
                 getPresenter().loadMoreStore(currentPage);
             }
         });
-//        store_list_stores_urv.setDefaultOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                getPresenter().getAllStore();
-//            }
-//        });
-//
-//        store_list_stores_urv.enableLoadmore();
-//        //page start from 0
-//        currentPage = 0;
-//        store_list_stores_urv.setOnLoadMoreListener(new UltimateRecyclerView.OnLoadMoreListener() {
-//            @Override
-//            public void loadMore(int itemsCount, int maxLastVisiblePosition) {
-////                currentPage+=1;
-////                getPresenter().loadMoreStore(currentPage);
-//            }
-//        });
-//
         getPresenter().getAllStore();
 
-//        adapter.enableLoadMore();
-//        adapter.setCustomLoadMoreView(LayoutInflater.from(getActivity())
-//                .inflate(R.layout.bottom_progressbar, null));
     }
 
     @Override
@@ -108,18 +86,19 @@ public class AllStoreFragment extends BaseFragment<AllStorePresenter> implements
     public void onGetAllStoreSuccess(ArrayList<Store> storeArrayList) {
         this.allStoreList.clear();
         this.allStoreList.addAll(storeArrayList);
+        EventLogger.info("Get all store successful, current size:"+allStoreList.size());
         adapter.notifyDataSetChanged();
         store_total_number_tv.setText(String.valueOf(allStoreList.size()));
 
         swipeRefreshLayout.setRefreshing(false);
-        store_list_pb.setVisibility(View.GONE);
-        store_list_stores_rv.setVisibility(View.VISIBLE);
+        hideProgress(store_list_pb,store_list_stores_rv);
     }
 
     @Override
     public void onLoadMoreSuccess(ArrayList<Store> moreStore) {
         allStoreList.remove(allStoreList.size()-1);
         this.allStoreList.addAll(moreStore);
+        EventLogger.info("Load more store successful, current size:"+allStoreList.size());
         adapter.notifyDataSetChanged();
         store_total_number_tv.setText(String.valueOf(allStoreList.size()));
         adapter.setLoaded();

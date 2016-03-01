@@ -45,4 +45,14 @@ public class UserCredential {
     public void setToken(String token) {
         this.token = token;
     }
+
+    @Override
+    public String toString() {
+        return "UserCredential{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", token='" + token + '\'' +
+                ", deviceId='" + deviceId + '\'' +
+                '}';
+    }
 }

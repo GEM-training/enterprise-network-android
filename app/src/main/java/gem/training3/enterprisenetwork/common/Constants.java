@@ -14,4 +14,5 @@ public interface Constants {
     String intent_storeId = "storeId";
     String columnNameAsc ="name,asc";
     int SIZE_PAGE_STORE = 10;
+    int BACK_TIMEOUT = 2000;
 }

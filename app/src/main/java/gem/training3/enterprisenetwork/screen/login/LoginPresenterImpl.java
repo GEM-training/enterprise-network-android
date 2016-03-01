@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 
+import gem.training3.enterprisenetwork.base.log.EventLogger;
 import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.common.util.VarUtils;
 import gem.training3.enterprisenetwork.network.ServiceBuilder;
@@ -53,6 +54,7 @@ public class LoginPresenterImpl implements LoginPresenter {
                         //save to SP
                         SharedPreferences sp = context.getSharedPreferences(Constants.USER_INFO, Activity.MODE_PRIVATE);
                         sp.edit().putString(Constants.SHARE_PREFERENCE_KEY_USER_JSON, json).apply();
+                        EventLogger.info("Log in successful, user: "+user);
                         mView.onLoginSuccess();
                     }
 

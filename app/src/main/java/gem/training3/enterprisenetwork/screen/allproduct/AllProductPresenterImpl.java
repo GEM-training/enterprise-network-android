@@ -5,6 +5,7 @@ import android.app.Activity;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import gem.training3.enterprisenetwork.base.log.EventLogger;
 import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
 import gem.training3.enterprisenetwork.network.ServiceBuilder;
@@ -24,6 +25,7 @@ public class AllProductPresenterImpl implements AllProductPresenter {
 
     @Override
     public void getProductByStoreId(Long storeId) {
+        EventLogger.info("Getting product by store id:"+storeId);
         Call<ResponseProduct> call = ServiceBuilder.getService().getProductByStore(Session.getCurrentUser().getToken(),Session.getCurrentUser().getDeviceId(),storeId,0,10, Constants.columnNameAsc);
         call.enqueue(new Callback<ResponseProduct>() {
             @Override
@@ -36,6 +38,7 @@ public class AllProductPresenterImpl implements AllProductPresenter {
 
             @Override
             public void onFailure(Call<ResponseProduct> call, Throwable t) {
+                EventLogger.info("get product by store id failure:"+t.getMessage());
                 DialogUtils.showErrorAlert((Activity)view,t.getMessage());
             }
         });

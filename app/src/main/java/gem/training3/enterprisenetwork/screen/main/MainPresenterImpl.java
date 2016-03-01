@@ -2,7 +2,7 @@ package gem.training3.enterprisenetwork.screen.main;
 
 import android.content.Context;
 
-import gem.training3.enterprisenetwork.base.log.Logger;
+import gem.training3.enterprisenetwork.base.log.EventLogger;
 import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.network.ServiceBuilder;
 import gem.training3.enterprisenetwork.network.Session;
@@ -22,6 +22,7 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void doLogout(final Context c) {
+        EventLogger.info("Do log out");
         Call<Void> call = ServiceBuilder.getService().logout(Session.getCurrentUser().getToken(),Session.getCurrentUser().getDeviceId());
         call.enqueue(new Callback<Void>() {
             @Override
@@ -32,7 +33,7 @@ public class MainPresenterImpl implements MainPresenter {
                     view.onLogoutSuccess();
                 }
                 else {
-                    Logger.e("Network not connect when logout1");
+                    EventLogger.info("Network not connect when logout1");
                     view.onLogoutSuccess();
                 }
             }
@@ -40,7 +41,7 @@ public class MainPresenterImpl implements MainPresenter {
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 view.onLogoutSuccess();
-                Logger.e("Network not connect when logout2");
+                EventLogger.info("Network not connect when logout2");
             }
         });
     }
