@@ -10,6 +10,10 @@
             android:id="@+id/nav_all_store"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/nav_all_store" />
+        <item
+            android:id="@+id/nav_statistic"
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/nav_statistic"/>
 
     </group>
     <item android:title="@string/nav_other">

@@ -3,13 +3,13 @@ package gem.training3.enterprisenetwork.base.log;
 import android.os.Environment;
 import android.util.Log;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by huylv on 29-Feb-16.
@@ -40,22 +40,29 @@ public class EventLogger {
     private static void writeToFile(String message) {
         try {
 
-                Process process = Runtime.getRuntime().exec("logcat -d");
-                BufferedReader bufferedReader = new BufferedReader(
-                        new InputStreamReader(process.getInputStream()));
+//                Process process = Runtime.getRuntime().exec("logcat -e");
+//                BufferedReader bufferedReader = new BufferedReader(
+//                        new InputStreamReader(process.getInputStream()));
+//
+//                StringBuilder log=new StringBuilder();
+//                String line;
+//                while ((line = bufferedReader.readLine()) != null) {
+//                    log.append(line);
+//                }
+//            String g = log.toString();
 
-                StringBuilder log=new StringBuilder();
-                String line;
-                while ((line = bufferedReader.readLine()) != null) {
-                    log.append(line);
-                }
 
             File sdCard = Environment.getExternalStorageDirectory();
             File dir = new File(sdCard.getAbsolutePath() + logDir);
             dir.mkdirs();
             File file = new File(dir, logFileName);
             PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(file, true), 8 * 1024));
-            writer.println(APP_ID + " " + new Date().toString() + " : " + message);
+
+            Date date = new Date();
+            SimpleDateFormat writeDate = new SimpleDateFormat("dd.MM.yyyy, HH.mm");
+            writeDate.setTimeZone(TimeZone.getTimeZone("GMT+07:00"));
+
+            writer.println(APP_ID + " " + writeDate.format(date) + " : " + message);
             writer.flush();
             writer.close();
         } catch (Exception e) {

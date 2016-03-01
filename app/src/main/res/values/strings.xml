@@ -99,4 +99,9 @@
     <string name="nav_log_out">Log out</string>
     <string name="navigation_sale_bt">Sales</string>
     <string name="nav_other">Other</string>
+    <string name="nav_statistic">Statistic</string>
+    <string name="table_column1_title">No</string>
+    <string name="table_column2_title">Product</string>
+    <string name="table_column3_title">Time</string>
+    <string name="table_column4_title">Status</string>
 </resources>

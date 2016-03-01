@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/fragment_statistic_paddingTop">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/fragment_statistic_spinner_marginBottom"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <Spinner
+            android:id="@+id/chart_type_sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/array_chart_type" />
+
+        <Spinner
+            android:id="@+id/time_filter_sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/array_filter" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/fragment_statistic_pb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            />
+
+
+        <TableLayout
+            android:id="@+id/table_item_purchased"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TableLayout>
+    </FrameLayout>
+
+</LinearLayout>

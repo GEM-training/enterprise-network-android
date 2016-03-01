@@ -5,7 +5,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import gem.training3.enterprisenetwork.R;
 
@@ -13,6 +14,9 @@ import gem.training3.enterprisenetwork.R;
  * Created by huylv on 22/02/2016.
  */
 public abstract class BaseActivityDrawer<T extends BasePresenter> extends BaseActivityToolbar<T> implements NavigationView.OnNavigationItemSelectedListener{
+
+    TextView nav_header_username;
+    TextView nav_header_fullname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,27 +28,18 @@ public abstract class BaseActivityDrawer<T extends BasePresenter> extends BaseAc
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View header = navigationView.getHeaderView(0);
+        nav_header_username = (TextView)header.findViewById(R.id.nav_header_username);
+        nav_header_fullname = (TextView)header.findViewById(R.id.nav_header_fullname);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
+    protected void setUserName(String username){
+        nav_header_username.setText(username);
+    }
 
-        switch (id){
-            case R.id.nav_home:
-
-                break;
-            case R.id.nav_logout:
-//                logout();
-                break;
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+    protected void setFullName(String fullName){
+        nav_header_fullname.setText(fullName);
     }
 
     @Override

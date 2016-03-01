@@ -3,10 +3,10 @@ package gem.training3.enterprisenetwork.screen.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.Bind;
@@ -16,7 +16,9 @@ import gem.training3.enterprisenetwork.base.BaseActivityDrawer;
 import gem.training3.enterprisenetwork.base.log.EventLogger;
 import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.common.util.VarUtils;
+import gem.training3.enterprisenetwork.network.Session;
 import gem.training3.enterprisenetwork.screen.fragment.allstore.AllStoreFragment;
+import gem.training3.enterprisenetwork.screen.fragment.statistic.StatisticFragment;
 import gem.training3.enterprisenetwork.screen.fragment.welcome.WelcomeFragment;
 import gem.training3.enterprisenetwork.screen.navigationmenu.NavigationActivity;
 import gem.training3.enterprisenetwork.screen.welcome.WelcomeActivity;
@@ -28,9 +30,10 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
 
     private WelcomeFragment welcomeFragment;
     private AllStoreFragment allStoreFragment;
+    private StatisticFragment statisticFragment;
 
-    @Bind(R.id.nav_header_username)
-    TextView nav_header_username;
+    @Bind(R.id.nav_view)
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +41,12 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
         EventLogger.info("Create MainActivity");
         welcomeFragment = new WelcomeFragment();
         allStoreFragment = new AllStoreFragment();
+        statisticFragment = new StatisticFragment();
         getFragmentManager().beginTransaction().replace(R.id.main_fl,welcomeFragment).addToBackStack(null).commit();
         if(getSupportActionBar()!=null) getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-//        nav_header_username.setText(Session.getCurrentUser().getUsername());
+        setUserName(Session.getCurrentUser().getUsername());
+        setFullName(getString(R.string.username_sample));
     }
 
     @Override
@@ -101,6 +106,9 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
                 break;
             case R.id.nav_all_store:
                 getFragmentManager().beginTransaction().replace(R.id.main_fl,allStoreFragment).addToBackStack(null).commit();
+                break;
+            case R.id.nav_statistic:
+                getFragmentManager().beginTransaction().replace(R.id.main_fl,statisticFragment).addToBackStack(null).commit();
                 break;
         }
 

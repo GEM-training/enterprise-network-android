@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_chart_type">
+        <item>Table</item>
+        <item>Line chart</item>
+        <item>Bar chart</item>
+    </string-array>
+    <string-array name="array_filter">
+        <item>Month</item>
+        <item>Year</item>
+    </string-array>
+</resources>

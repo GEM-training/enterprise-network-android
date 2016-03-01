@@ -44,4 +44,25 @@ public class AllProductPresenterImpl implements AllProductPresenter {
         });
 
     }
+
+    @Override
+    public void loadMoreProduct(Long storeId,int currentPage) {
+        EventLogger.info("Load more product...");
+        Call<ResponseProduct> call = ServiceBuilder.getService().getProductByStore(Session.getCurrentUser().getToken(),Session.getCurrentUser().getDeviceId(),storeId,currentPage,Constants.SIZE_PAGE_STORE,Constants.columnNameAsc);
+        call.enqueue(new Callback<ResponseProduct>() {
+            @Override
+            public void onResponse(Call<ResponseProduct> call, Response<ResponseProduct> response) {
+                ResponseProduct responseProduct = response.body();
+                Product[] products = responseProduct.getContent();
+                ArrayList<Product> moreProduct = new ArrayList<>(Arrays.asList(products));
+                view.onLoadMoreSuccess(moreProduct);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseProduct> call, Throwable t) {
+                EventLogger.info("Load more product failure: "+t.getMessage());
+                view.onRequestError(t.getMessage());
+            }
+        });
+    }
 }

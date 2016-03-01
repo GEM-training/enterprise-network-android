@@ -71,7 +71,7 @@ public class AllProductActivity extends BaseActivityToolbar<AllProductPresenter>
                 allProductList.add(null);
                 adapter.notifyItemInserted(allProductList.size()-1);
                 currentPage+=1;
-                getPresenter().loadMoreProduct(currentPage);
+                getPresenter().loadMoreProduct(storeId,currentPage);
             }
         });
 

@@ -52,4 +52,13 @@
     <dimen name="fragment_liststore_number_store_marginLeft">5dp</dimen>
     <dimen name="fragment_welcome_header_height">180dp</dimen>
     <dimen name="nav_header_profile_picture_height">75dp</dimen>
+    <dimen name="fragment_statistic_paddingTop">20dp</dimen>
+    <dimen name="table_column1_width">30dp</dimen>
+    <dimen name="table_column2_width">100dp</dimen>
+    <dimen name="table_column3_width">60dp</dimen>
+    <dimen name="table_column4_width">100dp</dimen>
+    <dimen name="table_column5_width">100dp</dimen>
+    <dimen name="table_column6_width">100dp</dimen>
+    <dimen name="fragment_statistic_spinner_marginBottom">10dp</dimen>
+    <dimen name="fragment_statistic_table_padding">5dp</dimen>
 </resources>
