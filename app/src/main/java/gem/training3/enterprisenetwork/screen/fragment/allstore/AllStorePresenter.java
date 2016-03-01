@@ -7,4 +7,5 @@ import gem.training3.enterprisenetwork.base.BasePresenter;
  */
 public interface AllStorePresenter extends BasePresenter {
     void getAllStore();
+    void loadMoreStore(int currentPage);
 }

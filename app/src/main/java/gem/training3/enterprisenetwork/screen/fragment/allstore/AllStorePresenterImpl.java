@@ -22,7 +22,7 @@ public class AllStorePresenterImpl implements AllStorePresenter {
 
     @Override
     public void getAllStore() {
-        Call<ResponseStore> call = ServiceBuilder.getService().getStore(Session.getCurrentUser().getToken(),Session.getCurrentUser().getDeviceId(),0,10, Constants.columnNameAsc);
+        Call<ResponseStore> call = ServiceBuilder.getService().getStore(Session.getCurrentUser().getToken(),Session.getCurrentUser().getDeviceId(),0,Constants.SIZE_PAGE_STORE, Constants.columnNameAsc);
 
         call.enqueue(new Callback<ResponseStore>() {
             @Override
@@ -33,6 +33,26 @@ public class AllStorePresenterImpl implements AllStorePresenter {
                 Store[] stores = responseStore.getContent();
                 ArrayList<Store> storeArrayList = new ArrayList<>(Arrays.asList(stores));
                 view.onGetAllStoreSuccess(storeArrayList);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseStore> call, Throwable t) {
+                view.onRequestError(t.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void loadMoreStore(int currentPage) {
+        Call<ResponseStore> call = ServiceBuilder.getService().getStore(Session.getCurrentUser().getToken(),Session.getCurrentUser().getDeviceId(),currentPage,Constants.SIZE_PAGE_STORE,Constants.columnNameAsc);
+        call.enqueue(new Callback<ResponseStore>() {
+            @Override
+            public void onResponse(Call<ResponseStore> call, Response<ResponseStore> response) {
+                ResponseStore responseStore = response.body();
+                Store[] stores = responseStore.getContent();
+                ArrayList<Store> moreStore = new ArrayList<Store>(Arrays.asList(stores));
+
+                view.onLoadMoreSuccess(moreStore);
             }
 
             @Override

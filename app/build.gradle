@@ -33,4 +33,5 @@ dependencies {
     compile 'com.github.whilu.CustomButton:library:1.0.0'
     compile 'com.balysv:material-ripple:1.0.2'
     compile 'com.marshalchen.ultimaterecyclerview:library:0.4.0'
+    compile 'com.github.tosslife:pullloadview:1.1.0'
 }

@@ -13,4 +13,5 @@ public interface Constants {
     String deviceId = "deviceId";
     String intent_storeId = "storeId";
     String columnNameAsc ="name,asc";
+    int SIZE_PAGE_STORE = 10;
 }

@@ -12,6 +12,7 @@ import com.google.gson.stream.JsonReader;
 import java.io.StringReader;
 
 import gem.training3.enterprisenetwork.R;
+import gem.training3.enterprisenetwork.base.log.EventLogger;
 import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.network.Session;
 import gem.training3.enterprisenetwork.network.model.UserCredential;
@@ -29,6 +30,7 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        EventLogger.error("ssssssssssss");
         //load share preferences
         SharedPreferences sp = getSharedPreferences(Constants.USER_INFO,MODE_PRIVATE);
         LOGGED_IN = sp.contains(Constants.SHARE_PREFERENCE_KEY_USER_JSON);

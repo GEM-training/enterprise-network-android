@@ -29,7 +29,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/store_description_tv"
+            android:id="@+id/store_address_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/store_name_tv"
@@ -41,7 +41,7 @@
             android:id="@+id/store_phone_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/store_description_tv"
+            android:layout_below="@id/store_address_tv"
             android:layout_marginLeft="@dimen/margin_medium"
             android:layout_toRightOf="@id/store_picture_iv"
             android:text="@string/sample_phone" />
