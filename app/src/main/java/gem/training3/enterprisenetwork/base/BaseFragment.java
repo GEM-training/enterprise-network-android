@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import butterknife.ButterKnife;
+import gem.training3.enterprisenetwork.base.log.EventLogger;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
 
 /**
@@ -35,24 +36,38 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     }
 
     @Override
-    public void showProgress(ProgressBar pb, View content) {
-        if(pb.getVisibility() == View.GONE && content.getVisibility() == View.VISIBLE ){
+    public void showProgress(ProgressBar pb, View... content) {
+        for (View v : content) {
+            if (v == null) {
+                EventLogger.error("Show progress null");
+                return;
+            }
+        }
+        if (pb.getVisibility() != View.VISIBLE) {
             pb.setVisibility(View.VISIBLE);
-            content.setVisibility(View.GONE);
+        }
+        for (View v : content) {
+            v.setVisibility(View.GONE);
         }
     }
 
     @Override
-    public void hideProgress(ProgressBar pb, View content) {
-        if(pb.getVisibility() == View.VISIBLE && content.getVisibility() == View.GONE ){
-            pb.setVisibility(View.GONE);
-            content.setVisibility(View.VISIBLE);
+    public void hideProgress(ProgressBar pb, View content, View... other) {
+        for (View v : other) {
+            if (v == null) {
+                EventLogger.error("Hide progress null");
+                return;
+            } else {
+                v.setVisibility(View.GONE);
+            }
         }
+        pb.setVisibility(View.GONE);
+        content.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void onRequestError(String errorMessage) {
-        DialogUtils.showErrorAlert(getActivity(),errorMessage);
+        DialogUtils.showErrorAlert(getActivity(), errorMessage);
     }
 
     @Override

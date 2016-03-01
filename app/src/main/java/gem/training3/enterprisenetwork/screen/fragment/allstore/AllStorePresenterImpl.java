@@ -51,7 +51,7 @@ public class AllStorePresenterImpl implements AllStorePresenter {
             public void onResponse(Call<ResponseStore> call, Response<ResponseStore> response) {
                 ResponseStore responseStore = response.body();
                 Store[] stores = responseStore.getContent();
-                ArrayList<Store> moreStore = new ArrayList<Store>(Arrays.asList(stores));
+                ArrayList<Store> moreStore = new ArrayList<>(Arrays.asList(stores));
                 view.onLoadMoreSuccess(moreStore);
             }
 

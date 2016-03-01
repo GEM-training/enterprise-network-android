@@ -27,12 +27,12 @@ import gem.training3.enterprisenetwork.screen.allproduct.AllProductActivity;
 public class StoreAdapter extends RecyclerView.Adapter {
     private final ArrayList<Store> storeArrayList;
     private final Context context;
-    private boolean loading;
-    private int visibleThreshold = 5;
-    private OnLoadMoreListener onLoadMoreListener;
-    private int lastVisibleItem, totalItemCount;
+    private final int visibleThreshold = 5;
     private final int VIEW_ITEM = 1;
     private final int VIEW_PROG = 0;
+    private boolean loading;
+    private OnLoadMoreListener onLoadMoreListener;
+    private int lastVisibleItem, totalItemCount;
 
     public StoreAdapter(ArrayList<Store> s,Context c,RecyclerView recyclerView) {
         storeArrayList = s;
@@ -123,6 +123,15 @@ public class StoreAdapter extends RecyclerView.Adapter {
         loading = false;
     }
 
+    public static class ProgressViewHolder extends RecyclerView.ViewHolder {
+        public final ProgressBar progressBar;
+
+        public ProgressViewHolder(View v) {
+            super(v);
+            progressBar = (ProgressBar) v.findViewById(R.id.bottom_progress_bar);
+        }
+    }
+
     class StoreViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.store_name_tv)
         TextView store_name_tv;
@@ -134,15 +143,6 @@ public class StoreAdapter extends RecyclerView.Adapter {
         public StoreViewHolder(View v) {
             super(v);
             ButterKnife.bind(this,v);
-        }
-    }
-
-    public static class ProgressViewHolder extends RecyclerView.ViewHolder {
-        public ProgressBar progressBar;
-
-        public ProgressViewHolder(View v) {
-            super(v);
-            progressBar = (ProgressBar) v.findViewById(R.id.bottom_progress_bar);
         }
     }
 }

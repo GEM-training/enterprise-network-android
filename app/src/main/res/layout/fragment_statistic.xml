@@ -8,8 +8,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginBottom="@dimen/fragment_statistic_spinner_marginBottom"
-        android:gravity="center"
         android:weightSum="2">
 
         <Spinner
@@ -33,23 +33,35 @@
         android:layout_height="match_parent">
 
         <ProgressBar
-            android:visibility="gone"
             android:id="@+id/fragment_statistic_pb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
         <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/fragment_statistic_line_chart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"
             />
 
-
-        <TableLayout
-            android:id="@+id/table_item_purchased"
+        <ScrollView
+            android:id="@+id/fragment_statistic_table_layout_sv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TableLayout>
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableLayout
+                    android:id="@+id/table_purchased"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </ScrollView>
+
     </FrameLayout>
 
 </LinearLayout>

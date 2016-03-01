@@ -16,9 +16,9 @@ import java.util.TimeZone;
  */
 public class EventLogger {
     public static final String APP_ID = "-EN-";
-    public static String logDir = "/enterprise-network";
-    public static String logFileName = "/log.txt";
-    public static boolean writeLogsToFile = true;
+    public static final String logDir = "/enterprise-network";
+    public static final String logFileName = "/log.txt";
+    public static final boolean writeLogsToFile = true;
     public static final int LOG_LEVEL_VERBOSE = 4;
     public static final int LOG_LEVEL_DEBUG = 3;
     public static final int LOG_LEVEL_INFO = 2;

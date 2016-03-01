@@ -61,4 +61,6 @@
     <dimen name="table_column6_width">100dp</dimen>
     <dimen name="fragment_statistic_spinner_marginBottom">10dp</dimen>
     <dimen name="fragment_statistic_table_padding">5dp</dimen>
+    <dimen name="activity_navi_menu_marginLeft">20dp</dimen>
+    <dimen name="activity_navi_menu_ripple_dimension">10dp</dimen>
 </resources>

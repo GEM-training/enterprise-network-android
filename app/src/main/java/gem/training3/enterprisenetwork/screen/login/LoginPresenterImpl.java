@@ -26,7 +26,7 @@ public class LoginPresenterImpl implements LoginPresenter {
     }
 
     @Override
-    public void doLogin(Activity context, String email, String password, String deviceId) {
+    public void doLogin(String email, String password, String deviceId) {
 //        if (!StringUtils.validateEmail(email)) {
 //            mView.onEmailError();
 //            return;

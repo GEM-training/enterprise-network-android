@@ -8,8 +8,9 @@ import android.widget.ProgressBar;
  * Created by neo on 2/5/2016.
  */
 public interface BaseView<P extends BasePresenter> {
-    void showProgress(ProgressBar pb, View content);
-    void hideProgress(ProgressBar pb, View content);
+    void showProgress(ProgressBar pb, View... content);
+
+    void hideProgress(ProgressBar pb, View content, View... other);
     void onPrepareLayout();
 
     P getPresenter();

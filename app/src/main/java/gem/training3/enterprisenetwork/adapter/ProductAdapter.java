@@ -28,12 +28,12 @@ public class ProductAdapter extends RecyclerView.Adapter {
 
     private final ArrayList<Product> productArrayList;
     private final Context context;
-    private boolean loading;
-    private int visibleThreshold = 5;
-    private OnLoadMoreListener onLoadMoreListener;
-    private int lastVisibleItem, totalItemCount;
+    private final int visibleThreshold = 5;
     private final int VIEW_ITEM = 1;
     private final int VIEW_PROG = 0;
+    private boolean loading;
+    private OnLoadMoreListener onLoadMoreListener;
+    private int lastVisibleItem, totalItemCount;
 
     public ProductAdapter(Context c,ArrayList<Product> s, RecyclerView recyclerView) {
         productArrayList = s;
@@ -122,6 +122,15 @@ public class ProductAdapter extends RecyclerView.Adapter {
         return productArrayList.size();
     }
 
+    public static class ProgressViewHolder extends RecyclerView.ViewHolder {
+        public final ProgressBar progressBar;
+
+        public ProgressViewHolder(View v) {
+            super(v);
+            progressBar = (ProgressBar) v.findViewById(R.id.bottom_progress_bar);
+        }
+    }
+
     class ProductViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.product_name_tv)
         TextView product_name_tv;
@@ -132,15 +141,6 @@ public class ProductAdapter extends RecyclerView.Adapter {
         public ProductViewHolder(View v){
             super(v);
             ButterKnife.bind(this,v);
-        }
-    }
-
-    public static class ProgressViewHolder extends RecyclerView.ViewHolder {
-        public ProgressBar progressBar;
-
-        public ProgressViewHolder(View v) {
-            super(v);
-            progressBar = (ProgressBar) v.findViewById(R.id.bottom_progress_bar);
         }
     }
 }

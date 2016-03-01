@@ -104,4 +104,5 @@
     <string name="table_column2_title">Product</string>
     <string name="table_column3_title">Time</string>
     <string name="table_column4_title">Status</string>
+    <string name="bottom_progressbar_loading">Loading</string>
 </resources>

@@ -39,13 +39,13 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/navigation_sale_bt"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/common_textSize"
                 />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="@dimen/activity_navi_menu_marginLeft"
             android:layout_toRightOf="@+id/ll1"
             android:gravity="center_horizontal"
             android:orientation="vertical"
@@ -53,7 +53,7 @@
             <com.balysv.materialripple.MaterialRippleLayout
                 android:layout_width="@dimen/navigation_menu_sale_width"
                 android:layout_height="@dimen/navigation_menu_sale_width"
-                app:mrl_rippleDimension="10dp"
+                app:mrl_rippleDimension="@dimen/activity_navi_menu_ripple_dimension"
                 app:mrl_rippleOverlay="true"
                 >
                 <ImageView

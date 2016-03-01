@@ -71,7 +71,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             etLoginEmail.setText("huylv");
             etLoginPassword.setText("123456");
 
-            getPresenter().doLogin(this, etLoginEmail.getText().toString(),
+            getPresenter().doLogin(etLoginEmail.getText().toString(),
                     etLoginPassword.getText().toString(), DeviceUtils.getDeviceId(this));
             showProgress(pbLogin,svLoginForm);
         }
