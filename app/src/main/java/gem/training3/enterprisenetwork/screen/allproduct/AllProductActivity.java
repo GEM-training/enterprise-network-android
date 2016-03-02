@@ -12,32 +12,35 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import gem.training3.enterprisenetwork.R;
-import gem.training3.enterprisenetwork.adapter.ProductAdapter;
 import gem.training3.enterprisenetwork.adapter.listener.OnLoadMoreListener;
 import gem.training3.enterprisenetwork.base.BaseActivityToolbar;
 import gem.training3.enterprisenetwork.base.log.EventLogger;
 import gem.training3.enterprisenetwork.network.model.Product;
 
 /**
+ *
  * Created by huylv on 25/02/2016.
  */
-public class AllProductActivity extends BaseActivityToolbar<AllProductPresenter> implements AllProductView{
+public class AllProductActivity extends BaseActivityToolbar<AllProductPresenter> implements AllProductView, OnLoadMoreListener {
 
-    private ArrayList<Product> allProductList;
-    private ProductAdapter adapter;
+
+    //num of item visible in recylcer view
+    private final int VISIBLE_THRESHOLD = 5;
+    //true when recycler view is loading more product
+    public boolean mIsLoading;
     @Bind(R.id.product_list_rv)
-    RecyclerView product_list_rv;
-
+    RecyclerView mProductsRv;
     @Bind(R.id.product_list_pb)
-    ProgressBar product_list_pb;
-
+    ProgressBar mProgressBar;
     @Bind(R.id.products_total_number_tv)
-    TextView products_total_number_tv;
-
+    TextView mTotalNumberTv;
     @Bind(R.id.product_list_srl)
-    SwipeRefreshLayout product_list_srl;
-
-    private int currentPage;
+    SwipeRefreshLayout mProductsRefreshLayout;
+    private LinearLayoutManager mLayoutManager;
+    //current page when load more product
+    private int mCurrentPage;
+    //get all product by mStoreid
+    private long mStoreId;
 
     @Override
     protected int getLayoutId() {
@@ -48,57 +51,80 @@ public class AllProductActivity extends BaseActivityToolbar<AllProductPresenter>
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EventLogger.info("All product activity create");
-        allProductList = new ArrayList<>();
-        currentPage = 0;
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        product_list_rv.setLayoutManager(llm);
-        adapter = new ProductAdapter(this, allProductList,product_list_rv);
-        product_list_rv.setAdapter(adapter);
+        mCurrentPage = 0;
+        mLayoutManager = new LinearLayoutManager(this);
+        mProductsRv.setLayoutManager(mLayoutManager);
+        mProductsRv.setAdapter(getPresenter().getAdapter());
 
         Intent i = getIntent();
-        final Long storeId = i.getLongExtra("storeId",1);
+        mStoreId = i.getLongExtra("mStoreId", 1);
 
-        product_list_srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        mProductsRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                currentPage =0;
-                getPresenter().getProductByStoreId(storeId);
+                mCurrentPage = 0;
+                getPresenter().getProductByStoreId(mStoreId);
             }
         });
-        adapter.setOnLoadMoreListener(new OnLoadMoreListener() {
+        getPresenter().getProductByStoreId(mStoreId);
+
+        setLoadMoreListener();
+    }
+
+    /**
+     *
+     */
+    private void setLoadMoreListener() {
+        mProductsRv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
             @Override
-            public void onLoadMore() {
-                allProductList.add(null);
-                adapter.notifyItemInserted(allProductList.size()-1);
-                currentPage+=1;
-                getPresenter().loadMoreProduct(storeId,currentPage);
+            public void onScrolled(RecyclerView recyclerView,
+                                   int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                int totalItemCount = mLayoutManager.getItemCount();
+                int lastVisibleItem = mLayoutManager.findLastVisibleItemPosition();
+                if (!mIsLoading
+                        && totalItemCount <= (lastVisibleItem + VISIBLE_THRESHOLD)) {
+                    // End has been reached
+                    AllProductActivity.this.onLoadMore();
+                    mIsLoading = true;
+                }
             }
         });
 
-        getPresenter().getProductByStoreId(storeId);
     }
+
 
     @Override
     public void onGetAllProductSuccess(ArrayList<Product> productArrayList) {
-        allProductList.clear();
+        getPresenter().getAllProductList().clear();
         EventLogger.info("Get all product successful, size:"+productArrayList.size());
-        hideProgress(product_list_pb,product_list_rv);
-        this.allProductList.addAll(productArrayList);
-        adapter.notifyDataSetChanged();
-        products_total_number_tv.setText(String.valueOf(productArrayList.size()));
+        hideProgress(mProgressBar, mProductsRv);
+        getPresenter().getAllProductList().addAll(productArrayList);
+        getPresenter().getAdapter().notifyDataSetChanged();
+        mTotalNumberTv.setText(String.valueOf(productArrayList.size()));
     }
 
     @Override
     public void onLoadMoreSuccess(ArrayList<Product> moreProduct) {
-        allProductList.remove(allProductList.size()-1);
-        allProductList.addAll(moreProduct);
-        EventLogger.info("Load more product successful, current size:"+ allProductList.size());
-        adapter.notifyDataSetChanged();
-        products_total_number_tv.setText(String.valueOf(allProductList.size()));
+        getPresenter().getAllProductList().remove(getPresenter().getAllProductList().size() - 1);
+        getPresenter().getAllProductList().addAll(moreProduct);
+        EventLogger.info("Load more product successful, current size:" + getPresenter().getAllProductList().size());
+        getPresenter().getAdapter().notifyDataSetChanged();
+        mTotalNumberTv.setText(String.valueOf(getPresenter().getAllProductList().size()));
     }
 
     @Override
     public AllProductPresenter onCreatePresenter() {
         return new AllProductPresenterImpl(this);
+    }
+
+    @Override
+    public void onLoadMore() {
+        getPresenter().getAllProductList().add(null);
+        getPresenter().getAdapter().notifyItemInserted(getPresenter().getAllProductList().size() - 1);
+        mCurrentPage += 1;
+        getPresenter().loadMoreProduct(mStoreId, mCurrentPage);
     }
 }

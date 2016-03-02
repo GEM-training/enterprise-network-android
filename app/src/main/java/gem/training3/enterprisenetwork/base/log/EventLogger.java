@@ -27,9 +27,7 @@ public class EventLogger {
     public static final int CURRENT_LOG_LEVEL = LOG_LEVEL_DEBUG;
 
     public static void log(String message, int logLevel) {
-        if (logLevel > CURRENT_LOG_LEVEL) {
-            return;
-        } else {
+        if (logLevel <= CURRENT_LOG_LEVEL) {
             Log.i(APP_ID, message);
             if (writeLogsToFile) {
                 writeToFile(message);

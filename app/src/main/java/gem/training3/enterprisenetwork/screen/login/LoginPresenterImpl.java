@@ -54,6 +54,7 @@ public class LoginPresenterImpl implements LoginPresenter {
                         //save to SP
                         SharedPreferences sp = context.getSharedPreferences(Constants.USER_INFO, Activity.MODE_PRIVATE);
                         sp.edit().putString(Constants.SHARE_PREFERENCE_KEY_USER_JSON, json).apply();
+
                         EventLogger.info("Log in successful, user: "+user);
                         mView.onLoginSuccess();
                     }

@@ -13,13 +13,13 @@ public class StatisticPresenterImpl implements StatisticPresenter {
     @Override
     public void loadTablePurchased() {
         EventLogger.info("Loading table purchased...");
-
         view.onLoadTableSuccess();
     }
 
     @Override
     public void loadLineChart() {
         EventLogger.info("Loading line chart...");
+        view.onLoadLineChartSuccess();
     }
 
     @Override

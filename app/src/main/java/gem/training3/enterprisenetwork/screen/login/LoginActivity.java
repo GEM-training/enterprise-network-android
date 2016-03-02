@@ -10,6 +10,7 @@ import butterknife.OnClick;
 import gem.training3.enterprisenetwork.R;
 import gem.training3.enterprisenetwork.base.BaseActivity;
 import gem.training3.enterprisenetwork.base.log.EventLogger;
+import gem.training3.enterprisenetwork.common.Constants;
 import gem.training3.enterprisenetwork.common.util.DeviceUtils;
 import gem.training3.enterprisenetwork.common.util.DialogUtils;
 import gem.training3.enterprisenetwork.common.util.NetworkUtils;
@@ -71,8 +72,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             etLoginEmail.setText("huylv");
             etLoginPassword.setText("123456");
 
+            String deviceId = DeviceUtils.getDeviceId(this);
+            if (deviceId == null) deviceId = String.valueOf(Constants.SPLASH_TIME_OUT);
+
             getPresenter().doLogin(etLoginEmail.getText().toString(),
-                    etLoginPassword.getText().toString(), DeviceUtils.getDeviceId(this));
+                    etLoginPassword.getText().toString(), deviceId);
             showProgress(pbLogin,svLoginForm);
         }
     }

@@ -3,7 +3,6 @@ package gem.training3.enterprisenetwork.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,34 +38,34 @@ public class ProductAdapter extends RecyclerView.Adapter {
         productArrayList = s;
         context = c;
 
-        if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
+//        if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
+//
+//            final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView
+//                    .getLayoutManager();
 
-            final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView
-                    .getLayoutManager();
 
-
-            recyclerView
-                    .addOnScrollListener(new RecyclerView.OnScrollListener() {
-                        @Override
-                        public void onScrolled(RecyclerView recyclerView,
-                                               int dx, int dy) {
-                            super.onScrolled(recyclerView, dx, dy);
-
-                            totalItemCount = linearLayoutManager.getItemCount();
-                            lastVisibleItem = linearLayoutManager
-                                    .findLastVisibleItemPosition();
-                            if (!loading
-                                    && totalItemCount <= (lastVisibleItem + visibleThreshold)) {
-                                // End has been reached
-                                // Do something
-                                if (onLoadMoreListener != null) {
-                                    onLoadMoreListener.onLoadMore();
-                                }
-                                loading = true;
-                            }
-                        }
-                    });
-        }
+//            recyclerView
+//                    .addOnScrollListener(new RecyclerView.OnScrollListener() {
+//                        @Override
+//                        public void onScrolled(RecyclerView recyclerView,
+//                                               int dx, int dy) {
+//                            super.onScrolled(recyclerView, dx, dy);
+//
+//                            totalItemCount = linearLayoutManager.getItemCount();
+//                            lastVisibleItem = linearLayoutManager
+//                                    .findLastVisibleItemPosition();
+//                            if (!mIsLoading
+//                                    && totalItemCount <= (lastVisibleItem + visibleThreshold)) {
+//                                // End has been reached
+//                                // Do something
+//                                if (onLoadMoreListener != null) {
+//                                    onLoadMoreListener.onLoadMore();
+//                                }
+//                                mIsLoading = true;
+//                            }
+//                        }
+//                    });
+//        }
     }
 
     @Override

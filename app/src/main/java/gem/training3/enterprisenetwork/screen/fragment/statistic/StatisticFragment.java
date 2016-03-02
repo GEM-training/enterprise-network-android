@@ -11,6 +11,11 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import gem.training3.enterprisenetwork.R;
@@ -62,6 +67,27 @@ public class StatisticFragment extends BaseFragment<StatisticPresenter> implemen
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+
+        ArrayList<Entry> entries = new ArrayList<>();
+        entries.add(new Entry(5f, 0));
+        entries.add(new Entry(6f, 1));
+        entries.add(new Entry(5f, 2));
+        entries.add(new Entry(7f, 3));
+        entries.add(new Entry(7f, 4));
+        entries.add(new Entry(7f, 5));
+
+        ArrayList<String> label = new ArrayList<>();
+        label.add(new String("12/2/2012"));
+        label.add(new String("13/2/2012"));
+        label.add(new String("14/2/2012"));
+        label.add(new String("15/2/2012"));
+        label.add(new String("16/2/2012"));
+        label.add(new String("17/2/2012"));
+
+        LineDataSet lineDataSet = new LineDataSet(entries, "EEEE");
+        fragment_statistic_line_chart.setData(new LineData(label, lineDataSet));
+        fragment_statistic_line_chart.setPinchZoom(true);
+        fragment_statistic_line_chart.setDoubleTapToZoomEnabled(true);
     }
 
     private void initTable() {
@@ -89,12 +115,12 @@ public class StatisticFragment extends BaseFragment<StatisticPresenter> implemen
 
     @Override
     public void onLoadTableSuccess() {
-        hideProgress(fragment_statistic_pb, table_item_purchased);
+        hideProgress(fragment_statistic_pb, table_item_purchased, fragment_statistic_line_chart);
     }
 
     @Override
     public void onLoadLineChartSuccess() {
-
+        hideProgress(fragment_statistic_pb, fragment_statistic_line_chart, table_item_purchased);
     }
 
     @Override
