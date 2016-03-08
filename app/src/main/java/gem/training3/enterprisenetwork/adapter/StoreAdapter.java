@@ -34,7 +34,7 @@ public class StoreAdapter extends RecyclerView.Adapter {
     private OnLoadMoreListener onLoadMoreListener;
     private int lastVisibleItem, totalItemCount;
 
-    public StoreAdapter(ArrayList<Store> s,Context c,RecyclerView recyclerView) {
+    public StoreAdapter(ArrayList<Store> s, Context c, RecyclerView recyclerView) {
         storeArrayList = s;
         context = c;
 
@@ -75,12 +75,10 @@ public class StoreAdapter extends RecyclerView.Adapter {
         if (viewType == VIEW_ITEM) {
             View v = LayoutInflater.from(parent.getContext()).inflate(
                     R.layout.item_store, parent, false);
-
             vh = new StoreViewHolder(v);
         } else {
             View v = LayoutInflater.from(parent.getContext()).inflate(
                     R.layout.bottom_progressbar, parent, false);
-
             vh = new ProgressViewHolder(v);
         }
         return vh;
@@ -92,11 +90,12 @@ public class StoreAdapter extends RecyclerView.Adapter {
         if (holder instanceof StoreViewHolder) {
             ((StoreViewHolder) holder).store_name_tv.setText(item.getName());
             ((StoreViewHolder) holder).store_address_tv.setText(item.getAddress());
+
             ((StoreViewHolder) holder).store_layout_cv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(context, AllProductActivity.class);
-                    i.putExtra(Constants.intent_storeId,item.getId());
+                    i.putExtra(Constants.intent_storeId, item.getId());
                     context.startActivity(i);
                 }
             });
@@ -142,7 +141,7 @@ public class StoreAdapter extends RecyclerView.Adapter {
 
         public StoreViewHolder(View v) {
             super(v);
-            ButterKnife.bind(this,v);
+            ButterKnife.bind(this, v);
         }
     }
 }

@@ -23,19 +23,23 @@ import gem.training3.enterprisenetwork.network.model.Product;
  */
 public class AllProductActivity extends BaseActivityToolbar<AllProductPresenter> implements AllProductView, OnLoadMoreListener {
 
-
     //num of item visible in recylcer view
     private final int VISIBLE_THRESHOLD = 5;
     //true when recycler view is loading more product
     public boolean mIsLoading;
+
     @Bind(R.id.product_list_rv)
     RecyclerView mProductsRv;
+
     @Bind(R.id.product_list_pb)
     ProgressBar mProgressBar;
+
     @Bind(R.id.products_total_number_tv)
     TextView mTotalNumberTv;
+
     @Bind(R.id.product_list_srl)
     SwipeRefreshLayout mProductsRefreshLayout;
+
     private LinearLayoutManager mLayoutManager;
     //current page when load more product
     private int mCurrentPage;

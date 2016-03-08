@@ -42,8 +42,8 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
         welcomeFragment = new WelcomeFragment();
         allStoreFragment = new AllStoreFragment();
         statisticFragment = new StatisticFragment();
-        getFragmentManager().beginTransaction().replace(R.id.main_fl,welcomeFragment).addToBackStack(null).commit();
-        if(getSupportActionBar()!=null) getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getFragmentManager().beginTransaction().replace(R.id.main_fl, welcomeFragment).addToBackStack(null).commit();
+        if (getSupportActionBar() != null) getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         setUserName(Session.getCurrentUser().getUsername());
         setFullName(getString(R.string.username_sample));
@@ -97,18 +97,18 @@ public class MainActivity extends BaseActivityDrawer<MainPresenter> implements M
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        switch (id){
+        switch (id) {
             case R.id.nav_home:
-                getFragmentManager().beginTransaction().replace(R.id.main_fl,welcomeFragment).addToBackStack(null).commit();
+                getFragmentManager().beginTransaction().replace(R.id.main_fl, welcomeFragment).addToBackStack(null).commit();
                 break;
             case R.id.nav_logout:
                 getPresenter().doLogout(this);
                 break;
             case R.id.nav_all_store:
-                getFragmentManager().beginTransaction().replace(R.id.main_fl,allStoreFragment).addToBackStack(null).commit();
+                getFragmentManager().beginTransaction().replace(R.id.main_fl, allStoreFragment).addToBackStack(null).commit();
                 break;
             case R.id.nav_statistic:
-                getFragmentManager().beginTransaction().replace(R.id.main_fl,statisticFragment).addToBackStack(null).commit();
+                getFragmentManager().beginTransaction().replace(R.id.main_fl, statisticFragment).addToBackStack(null).commit();
                 break;
         }
 

@@ -11,4 +11,6 @@ import gem.training3.enterprisenetwork.network.model.Store;
 interface AllStoreView extends BaseView<AllStorePresenter>{
     void onGetAllStoreSuccess(ArrayList<Store> storeArrayList);
     void onLoadMoreSuccess(ArrayList<Store> moreStore);
+
+
 }

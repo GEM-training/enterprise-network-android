@@ -18,6 +18,7 @@ import retrofit2.Response;
  */
 public class AllStorePresenterImpl implements AllStorePresenter {
     private final AllStoreView view;
+
     public AllStorePresenterImpl(AllStoreView v){view = v;}
 
     @Override

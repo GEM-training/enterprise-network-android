@@ -11,6 +11,7 @@ import gem.training3.enterprisenetwork.network.model.Product;
  */
 public interface AllProductPresenter extends BasePresenter {
     void getProductByStoreId(Long storeId);
+
     void loadMoreProduct(Long storeId,int currentPage);
 
     ProductAdapter getAdapter();

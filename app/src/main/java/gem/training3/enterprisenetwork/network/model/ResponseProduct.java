@@ -5,14 +5,14 @@ package gem.training3.enterprisenetwork.network.model;
  */
 public class ResponseProduct {
     Product[] content;
-    int totalElements;
-    int totalPages;
     boolean last;
-    int size;
-    int number;
+    int totalPages;
+    int totalElements;
     Sort[] sort;
-    int numberOfElements;
     boolean first;
+    int size;
+    int numberOfElements;
+    int number;
 
     public Product[] getContent() {
         return content;

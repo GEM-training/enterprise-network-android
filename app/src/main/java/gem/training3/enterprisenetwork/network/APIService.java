@@ -22,7 +22,7 @@ public interface APIService {
     Call<UserCredential> login(@Body UserCredential user);
 
     @POST("authenticate/logout")
-    Call<Void> logout(@Header(Constants.token) String access_token,@Header(Constants.deviceId) String deviceId);
+    Call<Void> logout(@Header(Constants.token) String access_token, @Header(Constants.deviceId) String deviceId);
 
     @GET("/store")
     Call<ResponseStore> getStore(@Header(Constants.token) String access_token,
